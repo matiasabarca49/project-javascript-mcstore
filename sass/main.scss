@@ -1,0 +1,10 @@
+$color-principal:#405163;
+$color-secundario:#F4F4F4;
+$fuente-logo:'Inspiration', cursive;
+$efect-bg: linear-gradient(90deg, rgba(100,130,200,1) 0%, rgba(75,90,150,1) 0%, rgba(64,81,99,1) 59%);
+
+@import url('https://fonts.googleapis.com/css2?family=Inspiration&family=Secular+One&display=swap');
+
+@import "globals.scss";
+
+@import "body_page.scss";

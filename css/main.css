@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Inspiration&family=Secular+One&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Secular One", sans-serif;
+}
+
+header {
+  background-image: linear-gradient(90deg, rgb(100, 130, 200) 0%, rgb(75, 90, 150) 0%, rgb(64, 81, 99) 59%);
+  height: 70px;
+  color: #fff;
+  width: 100%;
+}
+header nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+header nav .header__logo {
+  font-family: "Inspiration", cursive;
+  font-size: 50px;
+  color: #F4F4F4;
+  line-height: 1.2;
+  text-shadow: 2px 2px 2px #000;
+}
+header nav ul {
+  display: flex;
+}
+header nav ul li {
+  margin-right: 2rem;
+  list-style-type: none;
+}
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.promo {
+  position: relative;
+  height: 400px;
+  width: 100vw;
+  border: 2px solid black;
+}
+.promo div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 500px;
+  margin: auto;
+}
+.promo div h3 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 1rem;
+  padding: 0 2rem;
+}
+.separator .separator__line {
+  flex: 1;
+  height: 2px;
+  max-width: 40rem;
+  border-top: 3px solid black;
+}
+.separator div h3 {
+  font-size: 2rem;
+}
+
+/*# sourceMappingURL=main.css.map */

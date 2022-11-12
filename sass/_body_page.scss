@@ -1,0 +1,44 @@
+.promo{
+    position: relative;
+    height: 400px;
+    width: 100vw;
+    border: 2px solid black;
+    
+    div{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 500px;
+        margin: auto;
+        h3{
+            text-align: center;
+            font-size: 3rem;
+        }
+    }
+    
+
+}
+
+.separator{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 1rem;
+    padding: 0 2rem;
+    .separator__line{
+        flex: 1;
+        height: 2px;
+        max-width: 40rem;
+        border-top: 3px solid black;
+    }
+    div{
+        h3{
+            font-size: 2rem;
+        }
+    }
+
+   
+}

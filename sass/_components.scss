@@ -1,0 +1,34 @@
+.buttn{
+    border-radius: 40px;
+    border: none;
+    color: #fff;
+    background-image: $efect-bg;
+    padding: 1rem;
+    font-family: $fuente-principal;
+}
+
+
+.separator{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 1rem;
+    padding: 0 2rem;
+    .separator__line{
+        flex: 1;
+        height: 2px;
+        max-width: 40rem;
+        border-top: 3px solid black;
+    }
+
+    div{
+        h3{
+            font-size: 2rem;
+        }
+    }
+}
+
+.separator--end{
+    margin-top: 3rem;
+}

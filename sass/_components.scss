@@ -32,3 +32,31 @@
 .separator--end{
     margin-top: 3rem;
 }
+
+.genericProduct{
+    background-color: #ddd;
+    border-radius: 2.5rem;
+    overflow: hidden;
+    // box-shadow: 0 0 30px #000;   //Por decidir
+    img{
+        width: 100%;
+
+    }
+    div{
+        padding: 1.5rem 0;
+        padding-left: 1rem;
+        h3,p{
+            margin: 0;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            text-align: start;
+            span{
+                text-decoration: line-through;
+                color: rgb(173, 18, 18);
+                font-size: 1.3rem;
+                margin-left: 0.2rem;
+            }
+        }
+        
+    }
+}

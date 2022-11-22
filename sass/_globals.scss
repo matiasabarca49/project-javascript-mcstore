@@ -7,12 +7,24 @@ body{
 
 header{
     background-image: $efect-bg;
-    height: 70px;
+    height: 105px;
     color: #fff;
     width: 100%;
     position: fixed;
     top: 0;
     z-index: 999;
+    .oferta{
+        position: relative;
+        background-color: #000;
+        p{
+            font-family: sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0.2rem;
+            font-size: 1rem;
+            
+        }
+    }
     nav{
         display: flex;
         justify-content: space-around;
@@ -23,6 +35,16 @@ header{
             color: $color-secundario;
             line-height: 1.2;
             text-shadow: 2px 2px 2px #000; 
+            a{
+                color: #fff;
+                text-decoration: none;
+                &:visited{
+                    color: #fff;
+                }
+                &:link{
+                    color: #000;
+                }
+            }
         }
         ul{
             display: flex;
@@ -30,11 +52,17 @@ header{
             li{
                 margin-right: 2rem;
                 list-style-type: none;
+                transition: all 0.5s;
+                &:hover{
+                    text-decoration: underline;
+                    transform: scale(110%);
+                }
                 a{
                     font-size: 1.4rem;
                     color: #fff;
                     text-decoration: none;
                 }
+
             }
         }
         .shoppCart{
@@ -42,9 +70,22 @@ header{
             flex-direction: row-reverse;
             align-items: center;
             gap: 1rem;
+            .count{
+                background-color: #fff;
+                color: #000;
+                padding: 0 0.2rem;
+                text-align: center;
+                border-radius: 40px;
+                margin-left: -10px;
+                font-weight: 800;
+                box-shadow: 0 0 20px #333;
+            }
             img{
                 width: 30px;
                 filter: invert(100%);
+            }
+            &:hover{
+                transform: scale(110%);
             }
         }
         

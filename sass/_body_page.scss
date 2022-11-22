@@ -1,12 +1,12 @@
 .promo{
     width: 100%;
     text-align: center;
-    margin-top: 70px;
+    margin-top: 105px;
     img{
         padding: 2rem 0;
         width: 75%;
         // height: 500px;
-        object-fit: cover;
+        // object-fit: cover;
     }
 }
 
@@ -23,6 +23,7 @@
         background-color: #ddd;
         border-radius: 2.5rem;
         overflow: hidden;
+        // box-shadow: 0 0 30px #000;   //Por decidir
         img{
             width: 300px;
 
@@ -60,25 +61,28 @@
                 border-radius: 2.5rem;
                 display: grid;
                 justify-content: center;
+                align-items: center;
                 grid-template-columns: repeat(4,300px);
                 gap: 1rem;
                 .products__category__product{
                     margin: 2rem 0;
-                    overflow: hidden;
                     border-radius: 40px 0 40px 0;
-                    background-color: #ddd;
-                    div{
-                        padding: 1.5rem 0;
-                        padding-left: 1rem;
-                    }
+                    // overflow: hidden;
                     
-                    h3{
-                        font-size: 1rem;
-                        text-align: start;
-                    }
-                    img{
-                        width: 100%;
-                    }
+                    // background-color: #ddd;
+                    // div{
+                    //     // padding: 1.5rem 0;
+                    //     // padding-left: 1rem;
+                    //     h3{
+                    //         // font-size: 1rem;
+                    //         // text-align: start;
+                    //     }
+                    // }
+                    
+                    
+                    // img{
+                    //     width: 100%;
+                    // }
                    
                 }
         

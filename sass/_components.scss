@@ -5,6 +5,11 @@
     background-image: $efect-bg;
     padding: 1rem;
     font-family: $fuente-principal;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover{
+        transform: scale(110%);
+    }
 }
 
 

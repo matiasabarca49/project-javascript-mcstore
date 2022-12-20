@@ -20,13 +20,32 @@
                     <li><a href="#encargos">Encargos</a></li>
                 </ul>
             </div>
-            <div class="shoppCart">
-                <div class="count">15</div>
+            <div class="shoppCart" id="openCart">
+                <div class="count" id="cantProdEnCarrito">0</div>
                 <img src="./img/shopping-cart-svgrepo-com.svg" alt="">
                 Carrito
             </div>
         </nav>
+        <div class="modeGUI">
+            <img src="./img/icon/dom.png" alt="">
+        </div>
     </header>
+
+    <section class="carrito " id="carritoID">
+        <h3>Carrito Actual:</h3>
+        <div class="carritoProducto" id="carritoProductoID">
+            <!-- <div>
+                <h4>Pan Frances</h4>
+                <p>$1250 <span>x1</span></p>
+            </div>
+            <div>
+                <h4>Pan Frances</h4>
+                <p>$1250 <span>x1</span></p>
+            </div> -->
+            
+        </div>
+        <p class="totalAPagar" id="totalCompra">Total: 0</p>
+    </section>
 
     <section class="promo">
         <!-- <div>
@@ -44,48 +63,9 @@
     </div>
     
     
-    <section class="featured">
-        <div class="featured__product">
-            <img src="./img/pexels-pixabay-209206.jpg" alt="">
-            <div>
-                <h3>Pan</h3>
-                <p>$70<span>$90</span></p>
-                <button class="buttn"> Agregar al Carrito</button>
-            </div>
-        </div>
+    <section class="featured" id="featuredDom">
         
-        <div class="featured__product">
-            <img src="./img/pexels-pixabay-209206.jpg" alt="">
-            <div>
-                <h3>Pan</h3>
-                <p>$70<span>$90</span></p>
-                <button class="buttn"> Agregar al Carrito</button>
-            </div>
-        </div>
-        <div class="featured__product">
-            <img src="./img/pexels-pixabay-209206.jpg" alt="">
-            <div>
-                <h3>Pan</h3>
-                <p>$70<span>$90</span></p>
-                <button class="buttn"> Agregar al Carrito</button>
-            </div>
-        </div>
-        <div class="featured__product">
-            <img src="./img/pexels-pixabay-209206.jpg" alt="">
-            <div>
-                <h3>Pan</h3>
-                <p>$70<span>$90</span></p>
-                <button class="buttn"> Agregar al Carrito</button>
-            </div>
-        </div>
-        <div class="featured__product">
-            <img src="./img/pexels-pixabay-209206.jpg" alt="">
-            <div>
-                <h3>Pan</h3>
-                <p>$70<span>$90</span></p>
-                <button class="buttn"> Agregar al Carrito</button>
-            </div>
-        </div> 
+         
     </section>
 
     <div class="separator separator--end">
@@ -94,545 +74,38 @@
     </div>
 
     <section class="products">
-        <div id="panaderia">
+        <div>
             <h3>Panaderia</h3>
             <div>
-                <div class="products__category">
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
+                <div class="products__category" id="panaderia">
+                    
                 </div>
             </div>
         </div>
-        <div id="confiteria">
+        <div>
             <h3>Confitería</h3>
             <div>
-                <div class="products__category">
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
+                <div class="products__category" id="confiteria">
+                   
                 </div>
             </div>
         </div>
-        <div id="pasteleria">
+        <div>
             <h3>Pastelería</h3>
             <div>
-                <div class="products__category">
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
+                <div class="products__category" id="pasteleria">
+                    
                 </div>
             </div>
         </div>
-        <div id="encargos">
+        <div >
             <h3>Encargos</h3>
             <div>
-                <div class="products__category">
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="products__category__product genericProduct">
-                        <img src="./img/pexels-pixabay-209206.jpg" alt="">
-                        <div>
-                            <h3>Pan</h3>
-                            <p>$70<span></span></p>
-                            <button class="buttn"> Agregar al Carrito</button>
-                        </div>
-                    </div>
+                <div class="products__category" id="encargos">
+            
                 </div>
             </div>
+            
         </div>
 
         
@@ -653,5 +126,6 @@
         <div>Logo</div>
     </footer>
 
+    <script src="./js/main.js"></script>
 </body>
 </html>

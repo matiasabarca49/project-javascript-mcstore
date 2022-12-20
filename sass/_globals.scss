@@ -4,10 +4,43 @@ body{
     box-sizing: border-box;
     font-family: $fuente-principal
 }
+/* ===========MODO OSCURO============ */
+.dark{
+    background-color: rgb(24, 23, 23);
+    color: #fff;
+    .carrito{
+        background-color: #222;
+        .carritoProducto{
+            color: #000;
+        }
+    }
+    .separator{
+        .separator__line{
+            border-top: 3px solid #fff;
+        }
+    }
+    .featured{
+        background-color: #222;
+        &__product{
+            background-color: #fff;
+            color: #000;
+        }
+    }
+    .products{
+        .products__category{
+            background-color: #222;
+        }
+        .genericProduct{
+            background-color: #fff;
+            color: #000;
+        }
+    }
+    
+}
 
 header{
     background-image: $efect-bg;
-    height: 105px;
+    height: 100px;
     color: #fff;
     width: 100%;
     position: fixed;
@@ -70,6 +103,7 @@ header{
             flex-direction: row-reverse;
             align-items: center;
             gap: 1rem;
+            cursor: pointer;
             .count{
                 background-color: #fff;
                 color: #000;
@@ -89,6 +123,20 @@ header{
             }
         }
         
+    }
+    .modeGUI{
+        position: absolute;
+        right: 0;
+        margin: 1rem;
+        img{
+            cursor: pointer;
+            width: 40px;
+            transition: all 0.5s;
+
+            &:hover{
+                transform: scale(110%);
+            }
+        }
     }
 }
 

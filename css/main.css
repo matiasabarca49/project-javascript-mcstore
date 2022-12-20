@@ -6,9 +6,38 @@ body {
   font-family: "Secular One", sans-serif;
 }
 
+/* ===========MODO OSCURO============ */
+.dark {
+  background-color: rgb(24, 23, 23);
+  color: #fff;
+}
+.dark .carrito {
+  background-color: #222;
+}
+.dark .carrito .carritoProducto {
+  color: #000;
+}
+.dark .separator .separator__line {
+  border-top: 3px solid #fff;
+}
+.dark .featured {
+  background-color: #222;
+}
+.dark .featured__product {
+  background-color: #fff;
+  color: #000;
+}
+.dark .products .products__category {
+  background-color: #222;
+}
+.dark .products .genericProduct {
+  background-color: #fff;
+  color: #000;
+}
+
 header {
   background-image: linear-gradient(90deg, rgb(100, 130, 200) 0%, rgb(75, 90, 150) 0%, rgb(64, 81, 99) 59%);
-  height: 105px;
+  height: 100px;
   color: #fff;
   width: 100%;
   position: fixed;
@@ -70,6 +99,7 @@ header nav .shoppCart {
   flex-direction: row-reverse;
   align-items: center;
   gap: 1rem;
+  cursor: pointer;
 }
 header nav .shoppCart .count {
   background-color: #fff;
@@ -86,6 +116,19 @@ header nav .shoppCart img {
   filter: invert(100%);
 }
 header nav .shoppCart:hover {
+  transform: scale(110%);
+}
+header .modeGUI {
+  position: absolute;
+  right: 0;
+  margin: 1rem;
+}
+header .modeGUI img {
+  cursor: pointer;
+  width: 40px;
+  transition: all 0.5s;
+}
+header .modeGUI img:hover {
   transform: scale(110%);
 }
 
@@ -117,6 +160,37 @@ header nav .shoppCart:hover {
   width: 40px;
 }
 
+.carrito {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 999;
+  width: 400px;
+  padding: 15px;
+  background-color: #ddd;
+  overflow: hidden;
+  border-radius: 40px;
+}
+.carrito .carritoProducto {
+  overflow-y: scroll;
+  max-height: 40vh;
+}
+.carrito .carritoProducto div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background-color: #f8f8f8;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+.carrito .totalAPagar {
+  font-size: 2rem;
+}
+
+section.carrito--mover {
+  right: -1000px;
+}
+
 .promo {
   width: 100%;
   text-align: center;
@@ -132,7 +206,7 @@ header nav .shoppCart:hover {
   justify-content: center;
   background-color: #f8f8f8;
   gap: 1rem;
-  padding: 2rem 0;
+  padding: 2rem 2.5rem;
   margin: 0 4rem;
   border-radius: 40px;
 }
@@ -142,22 +216,24 @@ header nav .shoppCart:hover {
   overflow: hidden;
 }
 .featured__product img {
-  width: 300px;
+  width: 100%;
 }
 .featured__product div {
-  padding: 1.5rem 0;
+  margin: 1rem 0;
   padding-left: 1rem;
 }
 .featured__product div h3, .featured__product div p {
   margin: 0;
-  margin-bottom: 0.5rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .featured__product div h3 span, .featured__product div p span {
   text-decoration: line-through;
   color: rgb(173, 18, 18);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-left: 0.2rem;
+}
+.featured__product div .buttn--modified {
+  margin: 1rem 0;
 }
 
 .products {
@@ -170,11 +246,12 @@ header nav .shoppCart:hover {
 .products div div .products__category {
   background-color: #f8f8f8;
   margin: 0 4rem;
+  padding: 0 4rem;
   border-radius: 2.5rem;
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(4, 300px);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 .products div div .products__category .products__category__product {
@@ -189,6 +266,11 @@ header nav .shoppCart:hover {
   background-image: linear-gradient(90deg, rgb(100, 130, 200) 0%, rgb(75, 90, 150) 0%, rgb(64, 81, 99) 59%);
   padding: 1rem;
   font-family: "Secular One", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.buttn:hover {
+  transform: scale(110%);
 }
 
 .separator {

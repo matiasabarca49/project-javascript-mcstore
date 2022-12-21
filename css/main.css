@@ -75,7 +75,7 @@ header nav .header__logo a:visited {
   color: #fff;
 }
 header nav .header__logo a:link {
-  color: #000;
+  color: #fff;
 }
 header nav ul {
   display: flex;
@@ -99,6 +99,7 @@ header nav .shoppCart {
   flex-direction: row-reverse;
   align-items: center;
   cursor: pointer;
+  transition: all 0.5s;
 }
 header nav .shoppCart .count {
   background-color: #fff;

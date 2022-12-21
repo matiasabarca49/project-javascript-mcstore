@@ -75,7 +75,7 @@ header{
                     color: #fff;
                 }
                 &:link{
-                    color: #000;
+                    color: #fff;
                 }
             }
         }
@@ -103,6 +103,7 @@ header{
             flex-direction: row-reverse;
             align-items: center;
             cursor: pointer;
+            transition: all 0.5s;
             .count{
                 background-color: #fff;
                 color: #000;

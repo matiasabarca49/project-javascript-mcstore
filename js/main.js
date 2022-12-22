@@ -57,7 +57,6 @@ function productosEnElCarrito(){
     const cantProdEnCarrito = document.getElementById("cantProdEnCarrito");
     cantProdEnCarrito.innerText = carrito.length;
     const carritoJSON = JSON.stringify(carrito);
-    console.log(carritoJSON);
     localStorage.setItem("carrito", carritoJSON)
 }
 
@@ -267,10 +266,9 @@ productos.forEach((producto) => {
 /* === Evento para abrir Carrito === */
 
 const contCarritoBoton = document.getElementById("openCart");
-contCarritoBoton.onclick = () =>{
-    console.log("Hiciste clic en carrito")
-    const  contCarrito = document.getElementById("carritoID");
-    contCarrito.classList.toggle("carrito--mover")
+contCarritoBoton.onclick = () =>{   
+const  contCarrito = document.getElementById("carritoID");
+contCarrito.classList.toggle("carrito--mover")
 }
 
 
@@ -312,7 +310,11 @@ else{
 //Carrito en el localstorage
 
 const carritoJSONRecuperado = localStorage.getItem("carrito");
-const carritoRecuperado = JSON.parse(carritoJSONRecuperado);
-carrito = carritoRecuperado;
-mostrarCarritoCompleto(carrito);
-sumaCarrito();
+if (carritoJSONRecuperado !== null){
+    const carritoRecuperado = JSON.parse(carritoJSONRecuperado);
+    carrito = carritoRecuperado;
+    mostrarCarritoCompleto(carrito);
+    sumaCarrito();
+}
+
+

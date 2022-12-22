@@ -12,11 +12,13 @@ class Producto{
 }
 
 function aplicarDescuento(objeto){
-    precio = objeto.precio
+    descuento = objeto.descuento
     if (objeto.descuento != 0){
-        objeto.descuento = precio * (100 - objeto.descuento)/100
+        objeto.descuento = objeto.precio;
+        objeto.precio *= (100 - descuento)/100
     }
 }
+
 
 function agregarACarrito(idProducto){
     //Verificamos si el producto ya se encuentra en el carrito
@@ -54,10 +56,13 @@ function agregarACarrito(idProducto){
 function productosEnElCarrito(){
     const cantProdEnCarrito = document.getElementById("cantProdEnCarrito");
     cantProdEnCarrito.innerText = carrito.length;
+    const carritoJSON = JSON.stringify(carrito);
+    console.log(carritoJSON);
+    localStorage.setItem("carrito", carritoJSON)
 }
 
 
-// Maquetar los producto en DOM en seccion carrito
+// Funcion para maquetar los producto en DOM en seccion carrito
 const mostrarProducto = (objeto) =>{
     
     const contenedorCarrito = document.getElementById("carritoProductoID");
@@ -65,9 +70,9 @@ const mostrarProducto = (objeto) =>{
     div.innerHTML= `<h4>${objeto.nombre}</h4>
                     <p>$${objeto.precio} <span id="cant${objeto.id}">x ${objeto.cantidad}</span></p>    
                     <div>
-                        <p class="buttn" id="mas${objeto.id}">+</p>
-                        <p class="buttn" id="menos${objeto.id}">-</p>
-                        <p class="buttn" id="eliminar${objeto.id}">X</p>
+                        <p class="buttn buttnCarrito" id="mas${objeto.id}">+</p>
+                        <p class="buttn buttnCarrito" id="menos${objeto.id}">-</p>
+                        <p class="buttn buttnCarrito" id="eliminar${objeto.id}">X</p>
                     </div>`
     contenedorCarrito.appendChild(div);
 
@@ -93,7 +98,7 @@ const mostrarProducto = (objeto) =>{
 }
 
 
-//Eliminar producto del carrito del DOM Y Array
+/* === Eliminar producto del carrito del DOM Y Array === */
 function eliminarProducto(objetoID){
     const productoEncontradoCarrito = carrito.find((producto) => producto.id === objetoID)
     const indice = carrito.indexOf(productoEncontradoCarrito);
@@ -102,12 +107,12 @@ function eliminarProducto(objetoID){
     const contedorProductosCarrito = document.getElementById("carritoProductoID");
     contedorProductosCarrito.innerHTML= ""
     productosEnElCarrito();
-    mostrarCarritoCompleto();
+    mostrarCarritoCompleto(carrito);
     sumaCarrito();
 
 }
 
-//Incrementar producto en carrito
+/* === Incrementar producto en carrito === */
 function incrementarProducto(objetoID){
     const cantidadActual = document.getElementById(`cant${objetoID}`)
     const prodEncontradoEnCarrito = carrito.find((producto)=> producto.id === objetoID);
@@ -119,10 +124,11 @@ function incrementarProducto(objetoID){
     }
     
     cantidadActual.innerText =`x ${prodEncontradoEnCarrito.cantidad}`;
+    productosEnElCarrito();
     sumaCarrito();
 }
 
-// Reducir productos en carrito
+/* ===Reducir productos en carrito === */
 function reducirProducto(objetoID){
     const cantidadActual = document.getElementById(`cant${objetoID}`)
     const prodEncontradoEnCarrito = carrito.find((producto)=> producto.id === objetoID);
@@ -130,17 +136,19 @@ function reducirProducto(objetoID){
         prodEncontradoEnCarrito.cantidad--;
     }
     cantidadActual.innerText =`x ${prodEncontradoEnCarrito.cantidad}`;
+    productosEnElCarrito();
     sumaCarrito();
 }
 
 
 
-//Funcion que nos permite pintar el DOM con el carrito completo. Esta funcion es utilizada al elimina un producto
-function mostrarCarritoCompleto(){
+/* === Funcion que nos permite pintar el DOM con el carrito completo. Esta funcion es utilizada al elimina un producto === */
+function mostrarCarritoCompleto(carrito){
     const contedorProductosCarrito = document.getElementById("carritoProductoID");
     carrito.forEach((producto)=> {
         //Se reutiliza la funcion que pinta el DOM de a un producto.
         mostrarProducto(producto)})
+    productosEnElCarrito()
 
 }
 
@@ -149,7 +157,6 @@ function mostrarCarritoCompleto(){
 
 function sumaCarrito(){
     const total = carrito.reduce((acumulador, producto) => acumulador + (producto.precio * producto.cantidad) ,0);
-    console.log("total: " + total)
     const totalProd = document.getElementById("totalCompra");
     totalProd.innerText = "Total: $"+ total;
 }
@@ -158,26 +165,15 @@ function sumaCarrito(){
 function renderizarDom(producto){
     const div = document.createElement("div");
     div.className = "products__category__product genericProduct"
-    if (producto.descuento !== 0){
-        div.innerHTML = ` <img src="${producto.url}" alt="">
-                      <div>
-                            <h3>${producto.nombre}</h3>
-                            <p>$${producto.descuento}<span> $${producto.precio}</span></p>
-                            <p class="cantDisponible">Disponibles: ${producto.stock} </p>
-                            <button class="buttn" id="btn${producto.id}"> Agregar al Carrito</button>
-                      </div>`;
-    }
-    else{
-        div.innerHTML = ` <img src="${producto.url}" alt="">
-                      <div>
-                            <h3>${producto.nombre}</h3>
-                            <p>$${producto.precio}<span> </span></p>
-                            <p class="cantDisponible">Disponibles: ${producto.stock} </p>
-                            <button class="buttn" id="btn${producto.id}"> Agregar al Carrito</button>
-                      </div>`;
-    }
+    div.innerHTML = ` <img src="${producto.url}" alt="">
+                    <div>
+                        <h3>${producto.nombre}</h3>
+                        <p id=precioDescuento${producto.id}>$${producto.precio}<span> $${producto.descuento}</span></p>
+                        <p class="cantDisponible">Disponibles: ${producto.stock} </p>
+                        <button class="buttn" id="btn${producto.id}"> Agregar al Carrito</button>
+                    </div>`;
 
-    // renderizarDomDestacados(producto);
+    renderizarDomDestacados(producto);
     return div;
 }
 
@@ -189,11 +185,16 @@ function renderizarDomDestacados(producto){
         div.innerHTML= ` <img src="${producto.url}" alt="">
                         <div>
                             <h3>${producto.nombre}</h3>
-                            <p>$${producto.descuento}<span> $${producto.precio}</span></p>
-                            <button class="buttn buttn--modified" id="btn${producto.id}"> Agregar al Carrito</button>
+                            <p>$${producto.precio}<span> $${producto.descuento}</span></p>
+                            <button class="buttn buttn--modified" id="destacados${producto.id}"> Agregar al Carrito</button>
                         </div>`;
         contFeatured.appendChild(div);
 
+    //Evento para agregar al carrito los destacados
+    const btnAgregarProductoDestacado = document.getElementById(`destacados${producto.id}`)
+    btnAgregarProductoDestacado.onclick = ()=>{
+        agregarACarrito(producto.id);
+    }
     }
     
 }
@@ -215,7 +216,7 @@ const parrilla = new Producto(10,"encargos", "Parrilla", 18000, 10,25,"./img/pro
 
 const productos = [frances,baguette,integral, torChocolate, torDurazno, torLemon, caramelos, chocolates, pernil, parrilla];
 
-const carrito = [];
+let carrito = [];
 
 
 /*=== Mostrar productos en el DOM de acuerdo la categoria  ===*/
@@ -240,12 +241,19 @@ productos.forEach((producto) => {
         contProdDeCategoria  = document.getElementById("encargos");
     }
 
-
+    //Llamamos a la funcion donde se aplica el descuento al producto
     aplicarDescuento(producto);
 
-    const div = renderizarDom(producto);
-    
-    contProdDeCategoria.appendChild(div);
+
+    //Pintamos el DOM con los productos del array productos.
+    const div = renderizarDom(producto);//funcion que crea el contenedor maquetado del producto
+    contProdDeCategoria.appendChild(div);// Agreamos los productos al DOM
+
+    //Si el producto en cuestion no contiene descuento se evita que en el DOM se muestre como precio anterior "$0"
+    if(producto.descuento === 0){
+        const eliminarDescuentoEnDom = document.getElementById(`precioDescuento${producto.id}`)
+        eliminarDescuentoEnDom.innerHTML=`<p id=precioDescuento${producto.id}>$${producto.precio}<span></span></p>`
+    }
 
 /*=== Evento para agregar productos al carrito ===*/
 
@@ -268,15 +276,17 @@ contCarritoBoton.onclick = () =>{
 
 /* ====== Para activar el modo NOCHE O LIGHT  ===== */
 
-
+//Traemos el contenedor que contiene el boton para cabiar de modo
 const modeGUI = document.querySelector(".modeGUI img");
 
 modeGUI.onclick = ()=>{
-    const modeAct = modeGUI.getAttribute("src")
-    if (modeAct == "./img/icon/luna.png"){
+    const modeAct = modeGUI.getAttribute("src") //Conseguimos el valor del atributo "src" para saber que imagen está aplicada
+    //Esto es con el fin de evitar que apareciera el sol con el modo oscuro al recargar la pagina o viceversa 
+    if (modeAct == "./img/icon/luna.png"){ 
+        //Si está la luna cambia a sol cambiando los atributos del elemento HTML
         modeGUI.setAttribute("src", "./img/icon/dom.png");
-        document.body.classList.remove("dark")
-        localStorage.setItem("modo", "light");
+        document.body.classList.remove("dark")//removemos la clase que transforma a modo oscuro
+        localStorage.setItem("modo", "light");//guardamos en localstorage el modo elegido
     }
     else{
         modeGUI.setAttribute("src", "./img/icon/luna.png");
@@ -286,8 +296,9 @@ modeGUI.onclick = ()=>{
     
 }
 
-const modo = localStorage.getItem("modo");
+const modo = localStorage.getItem("modo"); //Conseguimos el modo guardado en localstorage
 if (modo === "dark"){
+    //Si el modo oscuro estaba activado en la sesion anterior. Modificamos el atributo "src" y agregamos la clase que modifica a oscuro los colores
     modeGUI.setAttribute("src", "./img/icon/luna.png");
     document.body.classList.add("dark")
 }
@@ -298,3 +309,10 @@ else{
 /* ============================================================== */
 
 
+//Carrito en el localstorage
+
+const carritoJSONRecuperado = localStorage.getItem("carrito");
+const carritoRecuperado = JSON.parse(carritoJSONRecuperado);
+carrito = carritoRecuperado;
+mostrarCarritoCompleto(carrito);
+sumaCarrito();

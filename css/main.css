@@ -179,6 +179,7 @@ header .modeGUI img:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2px;
   margin-bottom: 10px;
   background-color: #f8f8f8;
   padding: 0 10px;
@@ -272,6 +273,11 @@ section.carrito--mover {
 }
 .buttn:hover {
   transform: scale(110%);
+}
+
+.buttnCarrito {
+  border-radius: 10px;
+  padding: 0.7rem;
 }
 
 .separator {

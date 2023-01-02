@@ -23,7 +23,24 @@
         }
     }
     .totalAPagar{
-        font-size: 2rem;
+        padding: 1rem 0;
+        p{
+            font-size: 2rem;
+            &:first-child{
+                margin: 0;
+                padding: 0;
+                font-size: 1.5rem;
+                span{
+                    font-size: 1.2rem;
+                    color: red;
+                }
+            }
+        }
+        &__final{
+            background-color: #f8f8f8;
+            border-radius: 20px;
+            padding: 0 1rem;
+        }
     }
 }
 

@@ -11,37 +11,40 @@ class Producto{
     }
 }
 
+/* ==== Funcion que aplica descuento segun la propiedad "descuento" === */
 function aplicarDescuento(objeto){
-    descuento = objeto.descuento
+    descuento = objeto.descuento;
     if (objeto.descuento != 0){
         objeto.descuento = objeto.precio;
-        objeto.precio *= (100 - descuento)/100
+        objeto.precio *= (100 - descuento)/100;
     }
 }
 
 
 function agregarACarrito(idProducto){
+    
     //Verificamos si el producto ya se encuentra en el carrito
     const prodEncontradoEnCarrito = carrito.find((producto) => producto.id === idProducto);
+
     // Si el condicional se cumple, aumentamos el atributo cantidad del producto.
-    
+    //Si el producto fue encontrado y tambien evaluamos que no se supere el stock.
     if (prodEncontradoEnCarrito && prodEncontradoEnCarrito.cantidad < prodEncontradoEnCarrito.stock){
         prodEncontradoEnCarrito.cantidad++;
         const actualizarCantidad = document.getElementById(`cant${prodEncontradoEnCarrito.id}`);
         //Actualizamos el apartado cantidad en el DOM reescribiendo el contenido del elemento "span"
         actualizarCantidad.innerHTML=`x ${prodEncontradoEnCarrito.cantidad}`;
     }
-    else if(prodEncontradoEnCarrito  == undefined){
+    else if (prodEncontradoEnCarrito === undefined){
         //Si no se cumple el condicional, se busca en la base de datos y se agrega al carrito
         const prodEncontradoEnBaseDatos = productos.find((producto) => producto.id === idProducto);
         carrito.push(prodEncontradoEnBaseDatos);
         //Pinta el DOM con el producto elegido
         mostrarProducto(prodEncontradoEnBaseDatos);
+        //Al agregar el primer producto, se agrega el boton "Vaciar Carrito"
+        agregarBotonVaciarEnElCarrito();
          
     }
-    else{
-        alert("No hay mas productos disponibles")
-    }
+    
     
 
     /*= Modificar el DOM agregando la cantidad de productos en el boton carrito 
@@ -53,11 +56,38 @@ function agregarACarrito(idProducto){
     sumaCarrito();
 }
 
+/* === Funcion Vaciar carrito carrito === */
+function agregarBotonVaciarEnElCarrito(){
+      if (carrito.length !== 0) {
+        console.log("Entre Aqui");
+        const contenedorBotonVaciar = document.getElementById("vaciarCarrito");
+        contenedorBotonVaciar.innerHTML= "";
+        const botonVaciarCarrito = document.createElement("button");
+        botonVaciarCarrito.classList= "buttn buttnCarrito"
+        botonVaciarCarrito.innerText= "Vaciar Carrito"
+        console.log(botonVaciarCarrito);
+        contenedorBotonVaciar.appendChild(botonVaciarCarrito);
+    }
+
+    /* === Evento para Vaciar carrito */
+
+    const botonVaciarCarrito = document.querySelector("#vaciarCarrito button");
+    botonVaciarCarrito.onclick = () => {
+        console.log("Entre en vaciar Carrito");
+        vaciarCarrito();
+
+    }; 
+   
+}
+
+/* ===Funcion que nos permite ver el el boton carrito del DOM cuantos productos tenemos en el carrito */
 function productosEnElCarrito(){
     const cantProdEnCarrito = document.getElementById("cantProdEnCarrito");
+    //Se calcula cuantos objetos hay en el array  carrito
     cantProdEnCarrito.innerText = carrito.length;
+    //Como es una funcion que se invoca constantemente, en esta funcion se guarda el carrito en localstorage
     const carritoJSON = JSON.stringify(carrito);
-    localStorage.setItem("carrito", carritoJSON)
+    localStorage.setItem("carrito", carritoJSON);
 }
 
 
@@ -100,29 +130,39 @@ const mostrarProducto = (objeto) =>{
 /* === Eliminar producto del carrito del DOM Y Array === */
 function eliminarProducto(objetoID){
     const productoEncontradoCarrito = carrito.find((producto) => producto.id === objetoID)
+    //Buscamos el indice del producto encontrado
     const indice = carrito.indexOf(productoEncontradoCarrito);
+    //Como el producto se elimina, tenemos que reiniciar la cantidad a 1
     productoEncontradoCarrito.cantidad= 1;
+    //Borramos el objeto del array
     carrito.splice(indice,1);
-    const contedorProductosCarrito = document.getElementById("carritoProductoID");
-    contedorProductosCarrito.innerHTML= ""
+    //Actualizamos la cantidad en el boton carrito y actualizamos el localstorage con la siguiente funcion
     productosEnElCarrito();
+    //Volvemos a pintar el carrito completo en el DOM
     mostrarCarritoCompleto(carrito);
-    sumaCarrito();
+
 
 }
+
+/* ==== Vaciar Carrito === */
+
+function vaciarCarrito(){
+    carrito = [];
+    mostrarCarritoCompleto(carrito);
+}
+
 
 /* === Incrementar producto en carrito === */
 function incrementarProducto(objetoID){
     const cantidadActual = document.getElementById(`cant${objetoID}`)
     const prodEncontradoEnCarrito = carrito.find((producto)=> producto.id === objetoID);
+    //Solo se actualiza la cantidad si no se supera el stock
     if (prodEncontradoEnCarrito.cantidad < prodEncontradoEnCarrito.stock){
         prodEncontradoEnCarrito.cantidad++;
     }
-    else{
-        alert("No hay mas productos disponibles");
-    }
-    
+    //Actualizamos la cantidad en el DOM carrito
     cantidadActual.innerText =`x ${prodEncontradoEnCarrito.cantidad}`;
+    //Volvemos a actualizan DOM de carrito
     productosEnElCarrito();
     sumaCarrito();
 }
@@ -131,23 +171,38 @@ function incrementarProducto(objetoID){
 function reducirProducto(objetoID){
     const cantidadActual = document.getElementById(`cant${objetoID}`)
     const prodEncontradoEnCarrito = carrito.find((producto)=> producto.id === objetoID);
+    //La siguiente condicion nos evita que la cantidad de productos sea menor a 1
     if (prodEncontradoEnCarrito.cantidad > 1){
         prodEncontradoEnCarrito.cantidad--;
     }
     cantidadActual.innerText =`x ${prodEncontradoEnCarrito.cantidad}`;
+    //Se agrega al localstorage con la siguiente funcion
     productosEnElCarrito();
+    //Recalcular el total
     sumaCarrito();
 }
 
 
 
-/* === Funcion que nos permite pintar el DOM con el carrito completo. Esta funcion es utilizada al elimina un producto === */
+/* === Funcion que nos permite pintar el DOM con el carrito completo. Esta funcion es utilizada al eliminar un producto === */
 function mostrarCarritoCompleto(carrito){
     const contedorProductosCarrito = document.getElementById("carritoProductoID");
+    //Borramos del DOM los producto actuales
+    contedorProductosCarrito.innerHTML= ""
     carrito.forEach((producto)=> {
         //Se reutiliza la funcion que pinta el DOM de a un producto.
-        mostrarProducto(producto)})
-    productosEnElCarrito()
+        mostrarProducto(producto)});
+    productosEnElCarrito();
+    sumaCarrito();
+    
+    //Si el carrito está vacio, agregamos la frase "Carrito Vacio" sino agregamos el boton.
+    if (carrito.length === 0){
+        const contenedorBotonVaciar = document.getElementById("vaciarCarrito");
+        contenedorBotonVaciar.innerHTML= "<p>Carrito Vacio</p>";
+    }
+    else{
+        agregarBotonVaciarEnElCarrito();
+    }
 
 }
 
@@ -157,7 +212,26 @@ function mostrarCarritoCompleto(carrito){
 function sumaCarrito(){
     const total = carrito.reduce((acumulador, producto) => acumulador + (producto.precio * producto.cantidad) ,0);
     const totalProd = document.getElementById("totalCompra");
-    totalProd.innerText = "Total: $"+ total;
+    //Modificamos el DOM en el carrito con el total + envio
+    totalProd.innerHTML = `<p>Productos: $ ${total} + <span id="contenedorEnvio">700</span></p>`;
+    // ID que nos permite modificar el apartado envio
+    const contenedorEnvio = document.getElementById("contenedorEnvio");
+    const contenedorTotalFinal = document.getElementById("totalFinal");
+    // Si el total supera los 3000 no se suma el "Envio" y se modifica el DOM agregando envio gratis
+    if (total > 3000){
+        contenedorEnvio.innerText="Envio Gratis"
+        contenedorTotalFinal.innerText = "Final: $"+ total ;
+    }
+    else if (total === 0){ //Si no hay productos, eliminamos el apartado envios
+        totalProd.innerText=""
+        contenedorTotalFinal.innerText = "Final: $" + total;
+        
+    }
+    else{ // Al total le sumamos el envio en caso de que no supere los 3000 
+        contenedorEnvio.innerText="$700 de envio"
+        contenedorTotalFinal.innerText = "Final: $"+ (total + 700);
+
+    }
 }
 
 
@@ -176,7 +250,9 @@ function renderizarDom(producto){
     return div;
 }
 
+/* === Funcion encargada de renderizar en el DOM los productos destacados === */
 function renderizarDomDestacados(producto){
+    //Solamente trabaja con los productos que tienen un descuento aplicado
     if (producto.descuento != 0){
         const contFeatured = document.getElementById("featuredDom");
         const div = document.createElement("div");
@@ -201,7 +277,7 @@ function renderizarDomDestacados(producto){
 /* ======  ALGORITMO PRINCIPAL ===== */
 
 
-//                          (ID, Categoria, Nombre del producto, Precio, Stock, Porcentaje de decuento, Imagen)
+//                          (ID, Categoria, Nombre del producto, Precio, Stock, Porcentaje de Decuento, Imagen)
 const frances = new Producto(1,"panaderia", "Frances/ud", 80, 15,10 ,"./img/productos/pfrances.jpg");
 const baguette = new Producto(2,"panaderia", "Baguette/ud", 110, 10,5, "./img/productos/baguette.jpg");
 const integral = new Producto(3,"panaderia", "Integral/ud", 490, 10,0, "./img/productos/pintegral.jpg");
@@ -215,7 +291,7 @@ const parrilla = new Producto(10,"encargos", "Parrilla", 18000, 10,25,"./img/pro
 
 const productos = [frances,baguette,integral, torChocolate, torDurazno, torLemon, caramelos, chocolates, pernil, parrilla];
 
-let carrito = [];
+let carrito = [];//Se inicia con "let" debido a que se debe reasignar el carrito guardado en localstorage
 
 
 /*=== Mostrar productos en el DOM de acuerdo la categoria  ===*/
@@ -223,7 +299,7 @@ let carrito = [];
 productos.forEach((producto) => {
 
     let contProdDeCategoria;
-
+    //Llamamos al contenedor depende la categoria del producto
     if (producto.categoria === "panaderia"){
         contProdDeCategoria = document.getElementById("panaderia");
 
@@ -250,7 +326,7 @@ productos.forEach((producto) => {
 
     //Si el producto en cuestion no contiene descuento se evita que en el DOM se muestre como precio anterior "$0"
     if(producto.descuento === 0){
-        const eliminarDescuentoEnDom = document.getElementById(`precioDescuento${producto.id}`)
+        const eliminarDescuentoEnDom = document.getElementById(`precioDescuento${producto.id}`);
         eliminarDescuentoEnDom.innerHTML=`<p id=precioDescuento${producto.id}>$${producto.precio}<span></span></p>`
     }
 
@@ -268,7 +344,7 @@ productos.forEach((producto) => {
 const contCarritoBoton = document.getElementById("openCart");
 contCarritoBoton.onclick = () =>{   
 const  contCarrito = document.getElementById("carritoID");
-contCarrito.classList.toggle("carrito--mover")
+contCarrito.classList.toggle("carrito--mover");
 }
 
 
@@ -283,12 +359,12 @@ modeGUI.onclick = ()=>{
     if (modeAct == "./img/icon/luna.png"){ 
         //Si está la luna cambia a sol cambiando los atributos del elemento HTML
         modeGUI.setAttribute("src", "./img/icon/dom.png");
-        document.body.classList.remove("dark")//removemos la clase que transforma a modo oscuro
+        document.body.classList.remove("dark");//removemos la clase que transforma a modo oscuro
         localStorage.setItem("modo", "light");//guardamos en localstorage el modo elegido
     }
     else{
         modeGUI.setAttribute("src", "./img/icon/luna.png");
-        document.body.classList.add("dark")
+        document.body.classList.add("dark");
         localStorage.setItem("modo", "dark");
     }
     
@@ -298,23 +374,20 @@ const modo = localStorage.getItem("modo"); //Conseguimos el modo guardado en loc
 if (modo === "dark"){
     //Si el modo oscuro estaba activado en la sesion anterior. Modificamos el atributo "src" y agregamos la clase que modifica a oscuro los colores
     modeGUI.setAttribute("src", "./img/icon/luna.png");
-    document.body.classList.add("dark")
+    document.body.classList.add("dark");
 }
 else{
-    document.body.classList.remove("dark")
+    document.body.classList.remove("dark");
 }
 
 /* ============================================================== */
 
-
 //Carrito en el localstorage
-
 const carritoJSONRecuperado = localStorage.getItem("carrito");
 if (carritoJSONRecuperado !== null){
     const carritoRecuperado = JSON.parse(carritoJSONRecuperado);
     carrito = carritoRecuperado;
     mostrarCarritoCompleto(carrito);
-    sumaCarrito();
 }
 
 

@@ -22,6 +22,8 @@ function aplicarDescuento(objeto){
 
 
 function agregarACarrito(idProducto){
+
+    let notificacion = true;
     
     //Verificamos si el producto ya se encuentra en el carrito
     const prodEncontradoEnCarrito = carrito.find((producto) => producto.id === idProducto);
@@ -44,7 +46,35 @@ function agregarACarrito(idProducto){
         agregarBotonVaciarEnElCarrito();
          
     }
+    else{
+        notificacion = false;
+        swal.fire({
+            position: 'top',
+            text: "Alcanzado el stock máximo",
+            customClass:{
+                confirmButton: "buttn buttnAlertAffirmative",
+            },
+            buttonsStyling: false,
+            timer: 1000,
+            icon: "error",
+            showConfirmButton: false
+        })
+    }
     
+    /* Notificacion "Producto agregado al carrito" */
+    if (notificacion === true){
+        Toastify({
+            text: "Producto agregado al carrito",
+            duration: 3000,
+            close: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "linear-gradient(90deg, rgba(100,130,200,1) 0%, rgba(75,90,150,1) 0%, rgba(64,81,99,1) 59%)",
+            },
+        }).showToast();
+    }
     
 
     /*= Modificar el DOM agregando la cantidad de productos en el boton carrito 
@@ -73,9 +103,22 @@ function agregarBotonVaciarEnElCarrito(){
 
     const botonVaciarCarrito = document.querySelector("#vaciarCarrito button");
     botonVaciarCarrito.onclick = () => {
-        console.log("Entre en vaciar Carrito");
-        vaciarCarrito();
-
+        swal.fire({
+            text: "¿Vaciar el carrito?",
+            icon: "warning",
+            confirmButtonText:"Si",
+            showCancelButton: true,
+            cancelButtonText:"No",
+            customClass:{
+                confirmButton: "buttn buttnAlertAffirmative",
+                cancelButton: "buttn buttnCarrito"
+            },
+            buttonsStyling: false
+        }).then((result) => {
+                if (result.isConfirmed === true){
+                 vaciarCarrito();
+                } 
+            });
     }; 
    
 }
@@ -159,6 +202,19 @@ function incrementarProducto(objetoID){
     //Solo se actualiza la cantidad si no se supera el stock
     if (prodEncontradoEnCarrito.cantidad < prodEncontradoEnCarrito.stock){
         prodEncontradoEnCarrito.cantidad++;
+    }
+    else{
+        swal.fire({
+            position: 'top',
+            text: "Alcanzado el stock máximo",
+            customClass:{
+                confirmButton: "buttn buttnAlertAffirmative",
+            },
+            buttonsStyling: false,
+            timer: 1000,
+            icon: "error",
+            showConfirmButton: false
+        })
     }
     //Actualizamos la cantidad en el DOM carrito
     cantidadActual.innerText =`x ${prodEncontradoEnCarrito.cantidad}`;

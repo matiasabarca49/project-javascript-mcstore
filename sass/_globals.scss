@@ -67,23 +67,6 @@ header{
         display: flex;
         justify-content: space-around;
         align-items: center;
-        .header__logo{
-            font-family: $fuente-logo;
-            font-size: 50px;
-            color: $color-secundario;
-            line-height: 1.2;
-            text-shadow: 2px 2px 2px #000; 
-            a{
-                color: #fff;
-                text-decoration: none;
-                &:visited{
-                    color: #fff;
-                }
-                &:link{
-                    color: #fff;
-                }
-            }
-        }
         ul{
             display: flex;
             

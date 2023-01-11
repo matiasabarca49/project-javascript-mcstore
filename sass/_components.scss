@@ -27,6 +27,14 @@
     
 }
 
+.buttnPagar{
+    margin: 0.2rem;
+    width: 90px;
+    border-radius: 10px;
+    background-image: none;
+    background-color: #f00;
+}
+
 
 .separator{
     display: flex;
@@ -46,6 +54,15 @@
         h3{
             font-size: 2rem;
         }
+    }
+}
+
+div.separator.separator--widthCien{
+    width: 80%;
+    text-align: center;
+    margin: 2rem 10rem;
+    .separator__line{
+        max-width: none;
     }
 }
 
@@ -82,5 +99,23 @@
             margin-bottom: 1rem;
         }
         
+    }
+}
+
+.header__logo{
+    font-family: $fuente-logo;
+    font-size: 50px;
+    color: $color-secundario;
+    line-height: 1.2;
+    text-shadow: 2px 2px 2px #000; 
+    a{
+        color: #fff;
+        text-decoration: none;
+        &:visited{
+            color: #fff;
+        }
+        &:link{
+            color: #fff;
+        }
     }
 }

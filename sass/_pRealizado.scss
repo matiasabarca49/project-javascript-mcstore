@@ -1,0 +1,20 @@
+.contenedorPrincipal{
+    padding: 1rem;
+    .agradecimientos{
+        width: 100%;
+        text-align: center;
+        div{
+            display: flex;
+            justify-content: space-evenly;
+            text-align: center;
+            align-items: center;
+            h1{
+                width: 40%;
+            }
+            h2{
+                font-size: 2rem;
+            }
+        }
+        
+    }
+}

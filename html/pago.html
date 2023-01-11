@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>MCKING || Pago</title>
+</head>
+<body>
+    <div id="usuarioLogueado" class="usuarioIngresado"></div>
+    <main class="contenedorPrincipal">
+        <div class="contenedorCarrito">
+            <h1>Carrito</h1>
+            <div id="contenedorCarrito" class="contenedorCarritoProductos"></div> 
+        </div>
+        <div id="total"></div>
+        <div class="contenedorInicioSesion">
+            <form action="" id="formulario">
+                <div> 
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" required>
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" required>
+                </div>
+                <div>
+                    <label for="tarjeta">Nro de Tarjeta:</label>
+                    <input type="" name="" id="tarjeta" placeholder=" XXXX-XXXX-XXXX-XXXX" required>
+                </div>
+                <div>
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion">
+                </div>
+                <input type="submit" class="buttn buttnCarrito" id="enviarFormulario" value="Siguiente">
+            </form>
+            <div id="botonParaPagar">
+                
+            </div>
+        </div>
+    </main>
+    
+
+    <script src="../js/pago.js"></script>
+</body>
+</html>

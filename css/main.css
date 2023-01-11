@@ -63,23 +63,6 @@ header nav {
   justify-content: space-around;
   align-items: center;
 }
-header nav .header__logo {
-  font-family: "Inspiration", cursive;
-  font-size: 50px;
-  color: #F4F4F4;
-  line-height: 1.2;
-  text-shadow: 2px 2px 2px #000;
-}
-header nav .header__logo a {
-  color: #fff;
-  text-decoration: none;
-}
-header nav .header__logo a:visited {
-  color: #fff;
-}
-header nav .header__logo a:link {
-  color: #fff;
-}
 header nav ul {
   display: flex;
 }
@@ -184,19 +167,20 @@ header .modeGUI img:hover {
   justify-content: space-between;
   align-items: center;
   gap: 2px;
-  margin-bottom: 10px;
+  margin: 10px 0;
   background-color: #f8f8f8;
   padding: 0 10px;
   border-radius: 10px;
 }
+.carrito #vaciarCarrito .carritoVacio {
+  margin: 1rem 0;
+}
 .carrito .totalAPagar {
   padding: 1rem 0;
 }
-.carrito .totalAPagar p {
-  font-size: 2rem;
-}
 .carrito .totalAPagar p:first-child {
   margin: 0;
+  margin-bottom: 0.5rem;
   padding: 0;
   font-size: 1.5rem;
 }
@@ -204,9 +188,15 @@ header .modeGUI img:hover {
   font-size: 1.2rem;
   color: red;
 }
-.carrito .totalAPagar__final {
-  background-color: #f8f8f8;
+.carrito .totalAPagar .totalAPagar__final {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   border-radius: 20px;
+  background-color: #f8f8f8;
+}
+.carrito .totalAPagar .totalAPagar__final p {
+  font-size: 2rem;
   padding: 0 1rem;
 }
 
@@ -309,6 +299,14 @@ section.carrito--mover {
   border: 3px solid rgba(151, 199, 250, 0.431372549);
 }
 
+.buttnPagar {
+  margin: 0.2rem;
+  width: 90px;
+  border-radius: 10px;
+  background-image: none;
+  background-color: #f00;
+}
+
 .separator {
   display: flex;
   align-items: center;
@@ -325,6 +323,15 @@ section.carrito--mover {
 }
 .separator div h3 {
   font-size: 2rem;
+}
+
+div.separator.separator--widthCien {
+  width: 80%;
+  text-align: center;
+  margin: 2rem 10rem;
+}
+div.separator.separator--widthCien .separator__line {
+  max-width: none;
 }
 
 .separator--end {
@@ -358,6 +365,81 @@ section.carrito--mover {
   color: #aaa;
   font-size: 0.9rem;
   margin-bottom: 1rem;
+}
+
+.header__logo {
+  font-family: "Inspiration", cursive;
+  font-size: 50px;
+  color: #F4F4F4;
+  line-height: 1.2;
+  text-shadow: 2px 2px 2px #000;
+}
+.header__logo a {
+  color: #fff;
+  text-decoration: none;
+}
+.header__logo a:visited {
+  color: #fff;
+}
+.header__logo a:link {
+  color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.usuarioIngresado {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.contenedorPrincipal {
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  margin: 4rem;
+  /*text-align: center;*/
+}
+.contenedorPrincipal .contenedorCarrito {
+  text-align: center;
+  padding: 1rem 0;
+}
+.contenedorPrincipal .contenedorCarrito .contenedorCarritoProductos {
+  text-align: start;
+  margin: 1rem 0;
+}
+.contenedorPrincipal .contenedorCarrito .contenedorCarritoProductos div {
+  width: 50vw;
+  margin: 0.5rem 0;
+  padding: 1.5rem;
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+.contenedorPrincipal {
+  padding: 1rem;
+}
+.contenedorPrincipal .agradecimientos {
+  width: 100%;
+  text-align: center;
+}
+.contenedorPrincipal .agradecimientos div {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+}
+.contenedorPrincipal .agradecimientos div h1 {
+  width: 40%;
+}
+.contenedorPrincipal .agradecimientos div h2 {
+  font-size: 2rem;
 }
 
 /*# sourceMappingURL=main.css.map */

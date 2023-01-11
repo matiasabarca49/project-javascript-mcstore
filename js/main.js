@@ -89,13 +89,11 @@ function agregarACarrito(idProducto){
 /* === Funcion Vaciar carrito carrito === */
 function agregarBotonVaciarEnElCarrito(){
       if (carrito.length !== 0) {
-        console.log("Entre Aqui");
         const contenedorBotonVaciar = document.getElementById("vaciarCarrito");
         contenedorBotonVaciar.innerHTML= "";
         const botonVaciarCarrito = document.createElement("button");
         botonVaciarCarrito.classList= "buttn buttnCarrito"
         botonVaciarCarrito.innerText= "Vaciar Carrito"
-        console.log(botonVaciarCarrito);
         contenedorBotonVaciar.appendChild(botonVaciarCarrito);
     }
 
@@ -123,7 +121,8 @@ function agregarBotonVaciarEnElCarrito(){
    
 }
 
-/* ===Funcion que nos permite ver el el boton carrito del DOM cuantos productos tenemos en el carrito */
+/* ===Funcion que nos permite ver el el boton carrito del DOM cuantos productos tenemos en el carrito, 
+ademas guardar el carrito en el localstorage*/
 function productosEnElCarrito(){
     const cantProdEnCarrito = document.getElementById("cantProdEnCarrito");
     //Se calcula cuantos objetos hay en el array  carrito
@@ -187,14 +186,6 @@ function eliminarProducto(objetoID){
 
 }
 
-/* ==== Vaciar Carrito === */
-
-function vaciarCarrito(){
-    carrito = [];
-    mostrarCarritoCompleto(carrito);
-}
-
-
 /* === Incrementar producto en carrito === */
 function incrementarProducto(objetoID){
     const cantidadActual = document.getElementById(`cant${objetoID}`)
@@ -238,9 +229,18 @@ function reducirProducto(objetoID){
     sumaCarrito();
 }
 
+/* ==== Vaciar Carrito === */
+
+function vaciarCarrito(){
+    carrito = [];
+    //Para reiniciar la cantidad en cada producto
+    productos.forEach((producto => producto.cantidad = 1))
+    mostrarCarritoCompleto(carrito);
+}
 
 
-/* === Funcion que nos permite pintar el DOM con el carrito completo. Esta funcion es utilizada al eliminar un producto === */
+/* === Funcion que nos permite pintar el DOM con el carrito completo. Esta funcion es utilizada al eliminar un producto, o
+al vaciar el carrito === */
 function mostrarCarritoCompleto(carrito){
     const contedorProductosCarrito = document.getElementById("carritoProductoID");
     //Borramos del DOM los producto actuales
@@ -254,7 +254,7 @@ function mostrarCarritoCompleto(carrito){
     //Si el carrito está vacio, agregamos la frase "Carrito Vacio" sino agregamos el boton.
     if (carrito.length === 0){
         const contenedorBotonVaciar = document.getElementById("vaciarCarrito");
-        contenedorBotonVaciar.innerHTML= "<p>Carrito Vacio</p>";
+        contenedorBotonVaciar.innerHTML= `<p class="carritoVacio">Carrito Vacio</p>`;
     }
     else{
         agregarBotonVaciarEnElCarrito();
@@ -276,20 +276,35 @@ function sumaCarrito(){
     // Si el total supera los 3000 no se suma el "Envio" y se modifica el DOM agregando envio gratis
     if (total > 3000){
         contenedorEnvio.innerText="Envio Gratis"
-        contenedorTotalFinal.innerText = "Final: $"+ total ;
+        contenedorTotalFinal.innerHTML = `<p class="totalAPagar__final"> Final: $ ${(total)}</p>
+                                          <button class=" buttn buttnPagar" id="pago"> Ir a pagar </button>`;
+        pagar();
+
     }
     else if (total === 0){ //Si no hay productos, eliminamos el apartado envios
         totalProd.innerText=""
-        contenedorTotalFinal.innerText = "Final: $" + total;
+        contenedorTotalFinal.innerHTML = `<p>Final: $ ${total}</p>` ;
         
     }
-    else{ // Al total le sumamos el envio en caso de que no supere los 3000 
+    else{ // Al total le sumamos el envio en caso de que no supere los 3000 y creamos el boton pagar
         contenedorEnvio.innerText="$700 de envio"
-        contenedorTotalFinal.innerText = "Final: $"+ (total + 700);
-
+        contenedorTotalFinal.innerHTML = `<p class="totalAPagar__final"> Final: $ ${(total + 700)}</p>
+                                          <button class="buttn buttnPagar" id="pago">Ir a pagar </button>`;
+        pagar();
     }
+    
 }
 
+//Funcion que crea el evento pagar
+function pagar(){
+    const irAPagar = document.getElementById("pago");
+    irAPagar.addEventListener("click", ()=>{
+    window.location.href = "../html/pago.html"
+    // swal.fire({
+    //     html: "../html/pago.html"
+    // });
+    })
+}
 
 function renderizarDom(producto){
     const div = document.createElement("div");

@@ -1,26 +1,4 @@
-class Producto{
-    constructor(id,categoria,nombre,precio,stock,descuento,url){
-        this.id = id;
-        this.categoria = categoria;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.cantidad = 1;
-        this.stock = stock;
-        this.descuento = descuento
-        this.url = url;
-    }
-}
-
-/* ==== Funcion que aplica descuento segun la propiedad "descuento" === */
-function aplicarDescuento(objeto){
-    descuento = objeto.descuento;
-    if (objeto.descuento != 0){
-        objeto.descuento = objeto.precio;
-        objeto.precio *= (100 - descuento)/100;
-    }
-}
-
-
+/* === Funcion para agregar los productos al carrito === */
 function agregarACarrito(idProducto){
 
     let notificacion = true;
@@ -61,7 +39,7 @@ function agregarACarrito(idProducto){
         })
     }
     
-    /* Notificacion "Producto agregado al carrito" */
+    // Notificacion "Producto agregado al carrito" 
     if (notificacion === true){
         Toastify({
             text: "Producto agregado al carrito",
@@ -77,8 +55,8 @@ function agregarACarrito(idProducto){
     }
     
 
-    /*= Modificar el DOM agregando la cantidad de productos en el boton carrito 
-    simplemente varificando la cantidad de objeto en el array carrito =*/ 
+    // Modificar el DOM agregando la cantidad de productos en el boton carrito 
+    //simplemente varificando la cantidad de objeto en el array carrito  
     productosEnElCarrito();
 
 
@@ -86,42 +64,8 @@ function agregarACarrito(idProducto){
     sumaCarrito();
 }
 
-/* === Funcion Vaciar carrito carrito === */
-function agregarBotonVaciarEnElCarrito(){
-      if (carrito.length !== 0) {
-        const contenedorBotonVaciar = document.getElementById("vaciarCarrito");
-        contenedorBotonVaciar.innerHTML= "";
-        const botonVaciarCarrito = document.createElement("button");
-        botonVaciarCarrito.classList= "buttn buttnCarrito"
-        botonVaciarCarrito.innerText= "Vaciar Carrito"
-        contenedorBotonVaciar.appendChild(botonVaciarCarrito);
-    }
 
-    /* === Evento para Vaciar carrito */
-
-    const botonVaciarCarrito = document.querySelector("#vaciarCarrito button");
-    botonVaciarCarrito.onclick = () => {
-        swal.fire({
-            text: "¿Vaciar el carrito?",
-            icon: "warning",
-            confirmButtonText:"Si",
-            showCancelButton: true,
-            cancelButtonText:"No",
-            customClass:{
-                confirmButton: "buttn buttnAlertAffirmative",
-                cancelButton: "buttn buttnCarrito"
-            },
-            buttonsStyling: false
-        }).then((result) => {
-                if (result.isConfirmed === true){
-                 vaciarCarrito();
-                } 
-            });
-    }; 
-   
-}
-
-/* ===Funcion que nos permite ver el el boton carrito del DOM cuantos productos tenemos en el carrito, 
+/* === Funcion que nos permite ver el el boton carrito del DOM cuantos productos tenemos en el carrito, 
 ademas guardar el carrito en el localstorage*/
 function productosEnElCarrito(){
     const cantProdEnCarrito = document.getElementById("cantProdEnCarrito");
@@ -133,7 +77,7 @@ function productosEnElCarrito(){
 }
 
 
-// Funcion para maquetar los producto en DOM en seccion carrito
+/*=== Funcion para maquetar los producto en DOM en seccion carrito ===*/
 const mostrarProducto = (objeto) =>{
     
     const contenedorCarrito = document.getElementById("carritoProductoID");
@@ -169,7 +113,7 @@ const mostrarProducto = (objeto) =>{
 }
 
 
-/* === Eliminar producto del carrito del DOM Y Array === */
+/* === Funcion para eliminar producto del carrito del DOM Y Array === */
 function eliminarProducto(objetoID){
     const productoEncontradoCarrito = carrito.find((producto) => producto.id === objetoID)
     //Buscamos el indice del producto encontrado
@@ -186,7 +130,7 @@ function eliminarProducto(objetoID){
 
 }
 
-/* === Incrementar producto en carrito === */
+/* ===  Funcion para incrementar producto en carrito === */
 function incrementarProducto(objetoID){
     const cantidadActual = document.getElementById(`cant${objetoID}`)
     const prodEncontradoEnCarrito = carrito.find((producto)=> producto.id === objetoID);
@@ -214,7 +158,7 @@ function incrementarProducto(objetoID){
     sumaCarrito();
 }
 
-/* ===Reducir productos en carrito === */
+/* ===Funcion para reducir productos en carrito === */
 function reducirProducto(objetoID){
     const cantidadActual = document.getElementById(`cant${objetoID}`)
     const prodEncontradoEnCarrito = carrito.find((producto)=> producto.id === objetoID);
@@ -227,15 +171,6 @@ function reducirProducto(objetoID){
     productosEnElCarrito();
     //Recalcular el total
     sumaCarrito();
-}
-
-/* ==== Vaciar Carrito === */
-
-function vaciarCarrito(){
-    carrito = [];
-    //Para reiniciar la cantidad en cada producto
-    productos.forEach((producto => producto.cantidad = 1))
-    mostrarCarritoCompleto(carrito);
 }
 
 
@@ -262,6 +197,50 @@ function mostrarCarritoCompleto(carrito){
 
 }
 
+/* === Funcion agregar boton para vaciar carrito  === */
+function agregarBotonVaciarEnElCarrito(){
+    if (carrito.length !== 0) {
+      const contenedorBotonVaciar = document.getElementById("vaciarCarrito");
+      contenedorBotonVaciar.innerHTML= "";
+      const botonVaciarCarrito = document.createElement("button");
+      botonVaciarCarrito.classList= "buttn buttnCarrito"
+      botonVaciarCarrito.innerText= "Vaciar Carrito"
+      contenedorBotonVaciar.appendChild(botonVaciarCarrito);
+  }
+
+  // Evento para Vaciar carrito 
+
+  const botonVaciarCarrito = document.querySelector("#vaciarCarrito button");
+  botonVaciarCarrito.onclick = () => {
+      swal.fire({
+          text: "¿Vaciar el carrito?",
+          icon: "warning",
+          confirmButtonText:"Si",
+          showCancelButton: true,
+          cancelButtonText:"No",
+          customClass:{
+              confirmButton: "buttn buttnAlertAffirmative",
+              cancelButton: "buttn buttnCarrito"
+          },
+          buttonsStyling: false
+      }).then((result) => {
+              if (result.isConfirmed === true){
+               vaciarCarrito();
+              } 
+          });
+  }; 
+ 
+}
+
+/* ==== Funcion para vaciar carrito === */
+
+function vaciarCarrito(){
+    carrito = [];
+    //Para reiniciar la cantidad en cada producto
+    productos.forEach((producto => producto.cantidad = 1))
+    mostrarCarritoCompleto(carrito);
+}
+
 
 /* === Costo total del carrito === */
 
@@ -278,6 +257,7 @@ function sumaCarrito(){
         contenedorEnvio.innerText="Envio Gratis"
         contenedorTotalFinal.innerHTML = `<p class="totalAPagar__final"> Final: $ ${(total)}</p>
                                           <button class=" buttn buttnPagar" id="pago"> Ir a pagar </button>`;
+        // Funcion que crea el evento en el boton. 
         pagar();
 
     }
@@ -299,11 +279,56 @@ function sumaCarrito(){
 function pagar(){
     const irAPagar = document.getElementById("pago");
     irAPagar.addEventListener("click", ()=>{
-    window.location.href = "../html/pago.html"
-    // swal.fire({
-    //     html: "../html/pago.html"
-    // });
+    window.location.href = "./html/pago.html"
     })
+}
+
+/* ============================================== DOM  ======================================= */
+
+/*=== Mostrar productos en el DOM de acuerdo la categoria  ===*/
+function mostrarProductosEnElDOM(baseDeDatos){
+
+    baseDeDatos.forEach((producto) => {
+
+            let contProdDeCategoria;
+            //Llamamos al contenedor depende la categoria del producto
+            if (producto.categoria === "panaderia"){
+                contProdDeCategoria = document.getElementById("panaderia");
+
+            }
+            else if (producto.categoria === "pasteleria"){
+                contProdDeCategoria  = document.getElementById("pasteleria");
+
+            }
+            else if (producto.categoria === "confiteria"){
+                contProdDeCategoria  = document.getElementById("confiteria");
+
+            }
+            else{
+                contProdDeCategoria  = document.getElementById("encargos");
+            }
+
+            //Llamamos a la funcion donde se aplica el descuento al producto
+            aplicarDescuento(producto);
+
+
+            //Pintamos el DOM con los productos del array productos.
+            const div = renderizarDom(producto);//funcion que crea el contenedor maquetado del producto
+            contProdDeCategoria.appendChild(div);// Agreamos los productos al DOM
+
+            //Si el producto en cuestion no contiene descuento se evita que en el DOM se muestre como precio anterior "$0"
+            if(producto.descuento === 0){
+                const eliminarDescuentoEnDom = document.getElementById(`precioDescuento${producto.id}`);
+                eliminarDescuentoEnDom.innerHTML=`<p id=precioDescuento${producto.id}>$${producto.precio}<span></span></p>`
+            }
+
+            /*=== Evento para agregar productos al carrito ===*/
+
+            const btn = document.getElementById(`btn${producto.id}`);
+            btn.addEventListener("click", () => agregarACarrito(producto.id));
+            
+
+    } )
 }
 
 function renderizarDom(producto){
@@ -345,70 +370,35 @@ function renderizarDomDestacados(producto){
     
 }
 
-/* ======  ALGORITMO PRINCIPAL ===== */
-
-
-//                          (ID, Categoria, Nombre del producto, Precio, Stock, Porcentaje de Decuento, Imagen)
-const frances = new Producto(1,"panaderia", "Frances/ud", 80, 15,10 ,"./img/productos/pfrances.jpg");
-const baguette = new Producto(2,"panaderia", "Baguette/ud", 110, 10,5, "./img/productos/baguette.jpg");
-const integral = new Producto(3,"panaderia", "Integral/ud", 490, 10,0, "./img/productos/pintegral.jpg");
-const torChocolate = new Producto(4,"pasteleria", "Torta chocolate", 3500, 10,0, "./img/productos/torChocolate.jpg");
-const torDurazno = new Producto(5,"pasteleria", "Torta Durazno ", 2800, 10,50,"./img/productos/torDurazno.jpg");
-const torLemon = new Producto(6,"pasteleria", "Torta Vainilla", 2300, 10,0,"./img/productos/torVainilla.jpg");
-const caramelos = new Producto(7,"confiteria", "Caramelos/ud", 50, 10,0,"./img/productos/candies.jpg");
-const chocolates = new Producto(8,"confiteria", "Moffins/ud", 150, 10,0,"./img/productos/muffins.jpg");
-const pernil = new Producto(9,"encargos", "Fiambres", 12000, 10,5,"./img/productos/fiambres.jpg");
-const parrilla = new Producto(10,"encargos", "Parrilla", 18000, 10,25,"./img/productos/parrilla.jpg");
-
-const productos = [frances,baguette,integral, torChocolate, torDurazno, torLemon, caramelos, chocolates, pernil, parrilla];
-
-let carrito = [];//Se inicia con "let" debido a que se debe reasignar el carrito guardado en localstorage
-
-
-/*=== Mostrar productos en el DOM de acuerdo la categoria  ===*/
-
-productos.forEach((producto) => {
-
-    let contProdDeCategoria;
-    //Llamamos al contenedor depende la categoria del producto
-    if (producto.categoria === "panaderia"){
-        contProdDeCategoria = document.getElementById("panaderia");
-
+/* ==== Funcion que aplica descuento segun la propiedad "descuento" === */
+function aplicarDescuento(objeto){
+    descuento = objeto.descuento;
+    if (objeto.descuento != 0){
+        objeto.descuento = objeto.precio;
+        objeto.precio *= (100 - descuento)/100;
     }
-    else if (producto.categoria === "pasteleria"){
-        contProdDeCategoria  = document.getElementById("pasteleria");
+}
 
-    }
-    else if (producto.categoria === "confiteria"){
-        contProdDeCategoria  = document.getElementById("confiteria");
+/* =================================================  ALGORITMO PRINCIPAL =============================================== */
 
-    }
-    else{
-        contProdDeCategoria  = document.getElementById("encargos");
-    }
+let productos;
 
-    //Llamamos a la funcion donde se aplica el descuento al producto
-    aplicarDescuento(producto);
+fetch("./json/productos.json")
+    .then(response => response.json())
+    .then(data =>{
+        productos = data;
+        mostrarProductosEnElDOM(productos);
+    })
 
 
-    //Pintamos el DOM con los productos del array productos.
-    const div = renderizarDom(producto);//funcion que crea el contenedor maquetado del producto
-    contProdDeCategoria.appendChild(div);// Agreamos los productos al DOM
+/*  Carrito en el localstorage*/ 
+// carrito se inicia con "let" debido a que se debe reasignar el carrito guardado en localstorage
+//se utiliza el operado "or" para que en caso de que la key "carrito" en el localstorage no exista se inicie como carrito = [] 
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    //Si el producto en cuestion no contiene descuento se evita que en el DOM se muestre como precio anterior "$0"
-    if(producto.descuento === 0){
-        const eliminarDescuentoEnDom = document.getElementById(`precioDescuento${producto.id}`);
-        eliminarDescuentoEnDom.innerHTML=`<p id=precioDescuento${producto.id}>$${producto.precio}<span></span></p>`
-    }
 
-/*=== Evento para agregar productos al carrito ===*/
-
-     const btn = document.getElementById(`btn${producto.id}`);
-     btn.addEventListener("click", () => agregarACarrito(producto.id));
-     
-
-} )
-
+//Debido a que se consulta el localstorage, se muestra renderiza el carrito sin importar el estado.
+mostrarCarritoCompleto(carrito);
 
 /* === Evento para abrir Carrito === */
 
@@ -452,13 +442,5 @@ else{
 }
 
 /* ============================================================== */
-
-//Carrito en el localstorage
-const carritoJSONRecuperado = localStorage.getItem("carrito");
-if (carritoJSONRecuperado !== null){
-    const carritoRecuperado = JSON.parse(carritoJSONRecuperado);
-    carrito = carritoRecuperado;
-    mostrarCarritoCompleto(carrito);
-}
 
 

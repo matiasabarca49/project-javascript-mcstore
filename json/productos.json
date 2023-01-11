@@ -1,0 +1,15 @@
+[
+    {"id":1, "categoria":"panaderia", "nombre":"Frances/ud", "precio":80, "cantidad": 1, "stock":15, "descuento":10 , "url":"./img/productos/pfrances.jpg"},
+    {"id":2, "categoria":"panaderia", "nombre":"Baguette/ud", "precio":110, "cantidad": 1,"stock":10, "descuento":5 , "url":"./img/productos/baguette.jpg"},
+    {"id":3, "categoria":"panaderia", "nombre":"Integral/ud", "precio":490, "cantidad": 1,"stock":10, "descuento":0 , "url":"./img/productos/pintegral.jpg"},
+    {"id":4, "categoria":"pasteleria", "nombre":"Torta chocolate", "precio":3500, "cantidad": 1,"stock":4, "descuento":0 , "url":"./img/productos/torChocolate.jpg"},
+    {"id":5, "categoria":"pasteleria", "nombre":"Torta Durazno", "precio":2950, "cantidad": 1,"stock":5, "descuento":50 , "url":"./img/productos/torDurazno.jpg"},
+    {"id":6, "categoria":"pasteleria", "nombre":"Torta Vainilla", "precio":3100, "cantidad": 1,"stock":3, "descuento":0 , "url":"./img/productos/torVainilla.jpg"},
+    {"id":7, "categoria":"confiteria", "nombre":"Caramelos/ud", "precio":50, "cantidad": 1,"stock":100, "descuento":0 , "url":"./img/productos/candies.jpg"},
+    {"id":8, "categoria":"confiteria", "nombre":"Moffins/ud", "precio":150, "cantidad": 1,"stock":10, "descuento":0 , "url":"./img/productos/muffins.jpg"},
+    {"id":9, "categoria":"encargos", "nombre":"Fiambres/ud", "precio":12000, "cantidad": 1,"stock":15, "descuento":10 , "url":"./img/productos/fiambres.jpg"},
+    {"id":10, "categoria":"encargos", "nombre":"Parrilla", "precio":18000, "cantidad": 1,"stock":1, "descuento":5 , "url":"./img/productos/parrilla.jpg"},
+    {"id":11, "categoria":"panaderia", "nombre":"Pan 1/ud", "precio":0, "cantidad": 1,"stock":15, "descuento":0 , "url":"./img/productos/pfrances.jpg"},
+    {"id":12, "categoria":"panaderia", "nombre":"Pan 2/ud", "precio":0, "cantidad": 1,"stock":15, "descuento":0 , "url":"./img/productos/pfrances.jpg"},
+    {"id":13, "categoria":"panaderia", "nombre":"Pan 3/ud", "precio":0, "cantidad": 1,"stock":15, "descuento":0 , "url":"./img/productos/pfrances.jpg"}
+]

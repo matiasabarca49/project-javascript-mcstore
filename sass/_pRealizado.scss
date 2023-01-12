@@ -1,5 +1,13 @@
 .contenedorPrincipal{
-    padding: 1rem;
+    padding: 4rem;
+    &__titulo{
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        img{
+            width: 70px;
+        }
+    }
     .agradecimientos{
         width: 100%;
         text-align: center;
@@ -15,6 +23,22 @@
                 font-size: 2rem;
             }
         }
+        p{
+            font-size: 2rem;
+        }
         
+    }
+    .envioStyle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        h4{
+            margin: 2rem 0 ;
+        }
+        img{
+            width: 50px;
+            object-fit: contain;
+        }
     }
 }

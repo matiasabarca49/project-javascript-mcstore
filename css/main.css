@@ -40,7 +40,7 @@ body {
 
 header {
   background-image: linear-gradient(90deg, rgb(100, 130, 200) 0%, rgb(75, 90, 150) 0%, rgb(64, 81, 99) 59%);
-  height: 100px;
+  height: 95px;
   color: #fff;
   width: 100%;
   position: fixed;
@@ -280,6 +280,7 @@ section.carrito--mover {
   padding: 1rem;
   font-family: "Secular One", sans-serif;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.3s;
 }
 .buttn:hover {
@@ -385,6 +386,13 @@ div.separator.separator--widthCien .separator__line {
   color: #fff;
 }
 
+/* Fondo background */
+.box {
+  background-image: linear-gradient(rgba(5, 7, 12, 0.87), rgba(5, 7, 12, 0.87)), url(../img/Logo2.png);
+  background-repeat: repeat;
+  background-size: 900px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -421,9 +429,68 @@ div.separator.separator--widthCien .separator__line {
   background-color: #ddd;
   border-radius: 10px;
 }
+.contenedorPrincipal .totalStyle--modified {
+  display: flex;
+  justify-content: space-around;
+  width: 75%;
+}
+.contenedorPrincipal .totalStyle--modified h2 {
+  font-size: 2rem;
+}
+.contenedorPrincipal .totalStyle {
+  justify-content: center;
+  padding: 1.5rem;
+}
+.contenedorPrincipal .totalStyle h4 {
+  margin: 0.5rem 0;
+}
+.contenedorPrincipal .totalStyle h2 {
+  font-size: 2rem;
+}
+.contenedorPrincipal .contenedorInicioSesion {
+  width: 60%;
+}
+.contenedorPrincipal .contenedorInicioSesion form {
+  margin: auto;
+  width: 85%;
+}
+.contenedorPrincipal .contenedorInicioSesion form .formFirstAndLastName {
+  display: flex;
+  justify-content: space-between;
+}
+.contenedorPrincipal .contenedorInicioSesion form .formPhone {
+  display: flex;
+  gap: 0.2rem;
+}
+.contenedorPrincipal .contenedorInicioSesion form input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.contenedorPrincipal .contenedorInicioSesion form input:hover {
+  border: 2px solid #405163;
+}
+.contenedorPrincipal .contenedorInicioSesion form input:focus {
+  background-color: rgba(119, 119, 119, 0.2);
+  outline: 2px solid #405163;
+}
+.contenedorPrincipal .contenedorInicioSesion form label {
+  display: inline-block;
+  margin: 0.5rem;
+}
 
 .contenedorPrincipal {
-  padding: 1rem;
+  padding: 4rem;
+}
+.contenedorPrincipal__titulo {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.contenedorPrincipal__titulo img {
+  width: 70px;
 }
 .contenedorPrincipal .agradecimientos {
   width: 100%;
@@ -440,6 +507,22 @@ div.separator.separator--widthCien .separator__line {
 }
 .contenedorPrincipal .agradecimientos div h2 {
   font-size: 2rem;
+}
+.contenedorPrincipal .agradecimientos p {
+  font-size: 2rem;
+}
+.contenedorPrincipal .envioStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.contenedorPrincipal .envioStyle h4 {
+  margin: 2rem 0;
+}
+.contenedorPrincipal .envioStyle img {
+  width: 50px;
+  object-fit: contain;
 }
 
 /*# sourceMappingURL=main.css.map */

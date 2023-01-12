@@ -7,35 +7,46 @@
     <link rel="stylesheet" href="../css/main.css">
     <title>MCKING || Pago</title>
 </head>
-<body>
+<body class="box">
     <div id="usuarioLogueado" class="usuarioIngresado"></div>
     <main class="contenedorPrincipal">
         <div class="contenedorCarrito">
             <h1>Carrito</h1>
             <div id="contenedorCarrito" class="contenedorCarritoProductos"></div> 
         </div>
-        <div id="total"></div>
+        <div class="totalStyle" id="totalStyleID">
+            <div id="total"></div>
+            <div id="botonParaPagar"></div>
+        </div>
         <div class="contenedorInicioSesion">
             <form action="" id="formulario">
-                <div> 
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" required>
-                    <label for="apellido">Apellido</label>
-                    <input type="text" id="apellido" required>
+                <div class="formFirstAndLastName"> 
+                    <div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+                    <div>
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" required>
+                    </div>
                 </div>
                 <div>
                     <label for="tarjeta">Nro de Tarjeta:</label>
-                    <input type="" name="" id="tarjeta" placeholder=" XXXX-XXXX-XXXX-XXXX" required>
+                    <div class="formPhone"> 
+                        <input type="" name="" placeholder=" XXXX" minlength="4" maxlength="4" pattern="[0-9]{4}" required>
+                        <input type="" name="" placeholder="XXXX" minlength="4" maxlength="4" pattern="[0-9]{4}" required>
+                        <input type="" name="" placeholder="XXXX" minlength="4" maxlength="4" pattern="[0-9]{4}" required>
+                        <input type="" name=""  placeholder="XXXX" minlength="4" maxlength="4" pattern="[0-9]{4}" required>
+                    </div>
+                   
                 </div>
                 <div>
                     <label for="direccion">Dirección</label>
-                    <input type="text" id="direccion">
+                    <input type="text" id="direccion" required>
                 </div>
                 <input type="submit" class="buttn buttnCarrito" id="enviarFormulario" value="Siguiente">
             </form>
-            <div id="botonParaPagar">
-                
-            </div>
+            
         </div>
     </main>
     

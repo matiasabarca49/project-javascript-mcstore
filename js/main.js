@@ -389,6 +389,7 @@ fetch("./json/productos.json")
         productos = data;
         mostrarProductosEnElDOM(productos);
     })
+    .catch(error => console.log(error));
 
 
 /*  Carrito en el localstorage*/ 

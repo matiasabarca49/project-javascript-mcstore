@@ -1,6 +1,5 @@
 
 const usuarioActual = JSON.parse(sessionStorage.getItem("usuarioActual"));
-console.log(usuarioActual.ultimoCarrito);
 
 let totalCompra = usuarioActual.ultimoCarrito.reduce( (acumulador, producto ) => (producto.precio * producto.cantidad) + acumulador,0);
 
@@ -20,7 +19,8 @@ contendedor.innerHTML= `<div class="separator separator--widthCien">
                         <div class="separator separator--widthCien">
                             <div class="separator__line"></div>
                         </div>
-                        <p>Vuelve prontro!!!!!</p>`;
+                        <p>¡Te esperamos pronto!</p>`;
 
 const contendedorEnvio = document.getElementById("envio");
-contendedorEnvio.innerText= `En minutos estamos con vos en ${usuarioActual.direccion}`
+contendedorEnvio.innerHTML= `<h4> En minutos estamos en...... ${usuarioActual.direccion}</h4>
+                            <img src="../img/icon/enviado.png">`

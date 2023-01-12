@@ -6,10 +6,12 @@
     padding: 1rem;
     font-family: $fuente-principal;
     cursor: pointer;
+    text-decoration: none;
     transition: all 0.3s;
     &:hover{
         transform: scale(110%);
     }
+    
 }
 
 .buttnCarrito{
@@ -119,3 +121,10 @@ div.separator.separator--widthCien{
         }
     }
 }
+
+/* Fondo background */
+.box {
+    background-image: linear-gradient(rgba(5, 7, 12, 0.87), rgba(5, 7, 12, 0.87)), url(../img/Logo2.png);
+    background-repeat: repeat;
+    background-size: 900px;
+  }

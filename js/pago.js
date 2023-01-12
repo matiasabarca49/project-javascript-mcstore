@@ -25,18 +25,19 @@ carrito.forEach(producto => {
                                   <p>$${producto.precio} <span> X ${producto.cantidad} </span></p>`
     contenedorCarrito.appendChild(productoDeCarrito);
 })
-console.log(carrito);
+
 
 //Agregando el total al DOM
 const totalCompra = carrito.reduce((acumulador, producto) => (producto.precio * producto.cantidad) + acumulador,0)
 const contenedorTotal = document.getElementById("total");
 if (totalCompra > 3000){
-    contenedorTotal.innerHTML= `<h2> Total: $${totalCompra} con <span> envio gratis</span> </h2>`;
+    contenedorTotal.innerHTML= `<h4> Productos: $${totalCompra} + <span> Envio Gratis</span> </h4>
+                                <h2>Total: $${totalCompra}</h2>`;
 
 }
 else{
     contenedorTotal.innerHTML= `<h4> Productos: $${totalCompra} + <span> $700 de Envio</span> </h4>
-                                <h2>Total: ${totalCompra + 700}</h2>`;
+                                <h2>Total: $${totalCompra + 700}</h2>`;
 }
 
 const formulario = document.getElementById("formulario");
@@ -53,7 +54,6 @@ formulario.addEventListener("submit", (e)=>{
     }
 
     formulario.reset();
-    console.log(usuarios);
     
 })
 
@@ -84,8 +84,11 @@ function guardarUsuarios(nombre,apellido){
 function agregarBotonPagar(){
     const formulario = document.getElementById("formulario");
     formulario.innerHTML = ""
+    const cambiarEstilo = document.getElementById("totalStyleID");
+    cambiarEstilo.classList.remove("totalStyle");
+    cambiarEstilo.classList.add("totalStyle--modified")
     const botonParaPagar = document.getElementById("botonParaPagar");
-    botonParaPagar.innerHTML= ` <a href="../index.html">Seguir Comprando</a>
+    botonParaPagar.innerHTML= ` <a class="buttn" href="../index.html">Seguir Comprando</a>
                                 <button class="buttn buttnPagar" id="pagoFinal">Pagar</button>`
     const contenedorUsuarioActual = document.getElementById("usuarioLogueado");
     contenedorUsuarioActual.innerHTML= `<p>Ingresaste como <span> ${usuarioActual.nombre} ${usuarioActual.apellido} </span></p>`
@@ -95,7 +98,6 @@ function agregarBotonPagar(){
     pagoFinal.addEventListener("click", () =>{
         window.location.href ="./prealizado.html";
         let carritoActual = JSON.parse(localStorage.getItem("carrito"));
-        console.log(carritoActual);
         carritoActual = [];
         localStorage.setItem("carrito", JSON.stringify(carritoActual));
 

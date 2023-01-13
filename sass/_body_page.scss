@@ -85,10 +85,12 @@ section.carrito--mover{
     padding: 2rem 2.5rem;
     margin: 0 4rem;
     border-radius: 40px;
+    overflow: hidden;
     &__product{
         background-color: #ddd;
         border-radius: 2.5rem;
         overflow: hidden;
+        min-width: 200px;
         // box-shadow: 0 0 30px #000;   //Por decidir
         img{
             width: 100%;
@@ -216,6 +218,9 @@ section.carrito--mover{
         .totalAPagar{
             p:first-child{
                 font-size: 5vw;
+                span{
+                    font-size: 4vw;
+                }
             }
         }
     }

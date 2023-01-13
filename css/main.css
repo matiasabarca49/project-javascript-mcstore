@@ -234,11 +234,13 @@ section.carrito--mover {
   padding: 2rem 2.5rem;
   margin: 0 4rem;
   border-radius: 40px;
+  overflow: hidden;
 }
 .featured__product {
   background-color: #ddd;
   border-radius: 2.5rem;
   overflow: hidden;
+  min-width: 200px;
 }
 .featured__product img {
   width: 100%;
@@ -313,6 +315,9 @@ section.carrito--mover {
   }
   .carrito .totalAPagar p:first-child {
     font-size: 5vw;
+  }
+  .carrito .totalAPagar p:first-child span {
+    font-size: 4vw;
   }
 }
 .buttn {

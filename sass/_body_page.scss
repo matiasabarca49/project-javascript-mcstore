@@ -36,7 +36,7 @@
                 margin: 0;
                 margin-bottom: 0.5rem;
                 padding: 0;
-                font-size: 1.5rem;
+                font-size: 1.5vw;
                 span{
                     font-size: 1.2rem;
                     color: red;
@@ -50,7 +50,7 @@
             border-radius: 20px;
             background-color: #f8f8f8;
             p{
-                font-size: 2rem;
+                font-size: 2vw;
                 padding: 0 1rem;
             }
 
@@ -120,17 +120,18 @@ section.carrito--mover{
 }
 
 .products{
-    margin-top: 4rem;
+    margin: 4rem 0;
     div{
         h3{
             text-align: center;
             font-size: 4rem;
+            margin: 1.5rem 0;
         }
         div{
             .products__category{
                 background-color: #f8f8f8;
                 margin: 0 4rem;
-                padding: 0 4rem;
+                padding: 2rem 4rem;
                 border-radius: 2.5rem;
                 display: grid;
                 justify-content: center;
@@ -164,4 +165,58 @@ section.carrito--mover{
         
     }
      
+}
+
+
+@media screen and (max-width: 991px) {
+    .products{
+        div{
+            div{
+                .products__category{
+                    grid-template-columns: repeat(3,1fr);
+                }
+
+            }
+
+        }
+
+    }
+    
+}
+
+@media screen and (max-width: 567px) {
+    .products{
+        div{
+            div{
+                .products__category{
+                    margin: 0;
+                    padding: 0 1rem;
+                    grid-template-columns: repeat(2,1fr);
+                    .products__category__product{
+                        margin: 0.5rem 0;
+                    }
+                }
+
+            }
+
+        }
+
+    }
+    section.promo{
+        margin-top: 0;
+        img{
+            padding: 3rem 0;
+            width: 100vw;
+        }
+    }
+    .carrito{
+        display: absolute;
+        right: 0;
+        width: 100vw;
+        .totalAPagar{
+            p:first-child{
+                font-size: 5vw;
+            }
+        }
+    }
 }

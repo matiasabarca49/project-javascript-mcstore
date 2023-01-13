@@ -1,5 +1,5 @@
 .contenedorPrincipal{
-    padding: 4rem;
+    // padding: 4rem;
     &__titulo{
         display: flex;
         gap: 1.5rem;
@@ -39,6 +39,30 @@
         img{
             width: 50px;
             object-fit: contain;
+        }
+    }
+}
+
+
+@media screen and (max-width: 567px) {
+    .contenedorPrincipal{
+        &__titulo{
+            flex-direction: column-reverse;
+            text-align: center;
+        }
+        .agradecimientos{
+            div{
+                flex-direction: column-reverse;
+                gap: 4rem;
+                h1{
+                    width: 90%;
+                }
+            }
+        }
+        .envioStyle{
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 2rem;
         }
     }
 }

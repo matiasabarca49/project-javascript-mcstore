@@ -146,6 +146,18 @@ header .modeGUI img:hover {
   width: 40px;
 }
 
+@media screen and (max-width: 567px) {
+  header {
+    position: relative;
+  }
+  header nav {
+    justify-content: space-between;
+    padding: 0 0.5rem;
+  }
+  header nav ul {
+    display: none;
+  }
+}
 .carrito {
   position: fixed;
   top: 100px;
@@ -182,7 +194,7 @@ header .modeGUI img:hover {
   margin: 0;
   margin-bottom: 0.5rem;
   padding: 0;
-  font-size: 1.5rem;
+  font-size: 1.5vw;
 }
 .carrito .totalAPagar p:first-child span {
   font-size: 1.2rem;
@@ -196,7 +208,7 @@ header .modeGUI img:hover {
   background-color: #f8f8f8;
 }
 .carrito .totalAPagar .totalAPagar__final p {
-  font-size: 2rem;
+  font-size: 2vw;
   padding: 0 1rem;
 }
 
@@ -250,16 +262,17 @@ section.carrito--mover {
 }
 
 .products {
-  margin-top: 4rem;
+  margin: 4rem 0;
 }
 .products div h3 {
   text-align: center;
   font-size: 4rem;
+  margin: 1.5rem 0;
 }
 .products div div .products__category {
   background-color: #f8f8f8;
   margin: 0 4rem;
-  padding: 0 4rem;
+  padding: 2rem 4rem;
   border-radius: 2.5rem;
   display: grid;
   justify-content: center;
@@ -272,6 +285,36 @@ section.carrito--mover {
   border-radius: 40px 0 40px 0;
 }
 
+@media screen and (max-width: 991px) {
+  .products div div .products__category {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 567px) {
+  .products div div .products__category {
+    margin: 0;
+    padding: 0 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .products div div .products__category .products__category__product {
+    margin: 0.5rem 0;
+  }
+  section.promo {
+    margin-top: 0;
+  }
+  section.promo img {
+    padding: 3rem 0;
+    width: 100vw;
+  }
+  .carrito {
+    display: absolute;
+    right: 0;
+    width: 100vw;
+  }
+  .carrito .totalAPagar p:first-child {
+    font-size: 5vw;
+  }
+}
 .buttn {
   border-radius: 40px;
   border: none;
@@ -279,6 +322,7 @@ section.carrito--mover {
   background-image: linear-gradient(90deg, rgb(100, 130, 200) 0%, rgb(75, 90, 150) 0%, rgb(64, 81, 99) 59%);
   padding: 1rem;
   font-family: "Secular One", sans-serif;
+  font-size: 1vw;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s;
@@ -353,18 +397,18 @@ div.separator.separator--widthCien .separator__line {
 }
 .genericProduct div h3, .genericProduct div p {
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.2vw;
   text-align: start;
 }
 .genericProduct div h3 span, .genericProduct div p span {
   text-decoration: line-through;
   color: rgb(173, 18, 18);
-  font-size: 1.3rem;
+  font-size: 1.8vw;
   margin-left: 0.2rem;
 }
 .genericProduct div .cantDisponible {
   color: #aaa;
-  font-size: 0.9rem;
+  font-size: 1vw;
   margin-bottom: 1rem;
 }
 
@@ -393,6 +437,28 @@ div.separator.separator--widthCien .separator__line {
   background-size: 900px;
 }
 
+@media screen and (max-width: 991px) {
+  .genericProduct div h3, .genericProduct div p {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 567px) {
+  .buttn {
+    font-size: 3vw;
+  }
+  .buttnCarrito {
+    font-size: 5vw;
+  }
+  .genericProduct div h3, .genericProduct div p {
+    font-size: 5vw;
+  }
+  .genericProduct div .cantDisponible {
+    font-size: 3vw;
+  }
+  div.separator.separator--widthCien {
+    margin: 2rem 0;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -412,6 +478,7 @@ div.separator.separator--widthCien .separator__line {
   align-items: center;
   border-radius: 10px;
   margin: 4rem;
+  padding: 4rem 0;
   /*text-align: center;*/
 }
 .contenedorPrincipal .contenedorCarrito {
@@ -432,6 +499,7 @@ div.separator.separator--widthCien .separator__line {
 .contenedorPrincipal .totalStyle--modified {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 75%;
 }
 .contenedorPrincipal .totalStyle--modified h2 {
@@ -457,6 +525,10 @@ div.separator.separator--widthCien .separator__line {
 .contenedorPrincipal .contenedorInicioSesion form .formFirstAndLastName {
   display: flex;
   justify-content: space-between;
+  gap: 0.5rem;
+}
+.contenedorPrincipal .contenedorInicioSesion form .formFirstAndLastName div {
+  flex-grow: 1;
 }
 .contenedorPrincipal .contenedorInicioSesion form .formPhone {
   display: flex;
@@ -468,6 +540,9 @@ div.separator.separator--widthCien .separator__line {
   border: none;
   border-radius: 10px;
   margin-bottom: 1rem;
+}
+.contenedorPrincipal .contenedorInicioSesion form input[type=submit] {
+  margin-bottom: 0;
 }
 .contenedorPrincipal .contenedorInicioSesion form input:hover {
   border: 2px solid #405163;
@@ -481,8 +556,27 @@ div.separator.separator--widthCien .separator__line {
   margin: 0.5rem;
 }
 
-.contenedorPrincipal {
-  padding: 4rem;
+@media screen and (max-width: 567px) {
+  .contenedorPrincipal {
+    margin: 4rem 0;
+  }
+  .contenedorPrincipal .contenedorCarrito .contenedorCarritoProductos div {
+    width: 80vw;
+  }
+  .contenedorPrincipal .totalStyle div h4 {
+    font-size: 5vw;
+  }
+  .contenedorPrincipal .totalStyle div h2 {
+    font-size: 10vw;
+  }
+  .contenedorPrincipal .totalStyle--modified {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .contenedorPrincipal .contenedorInicioSesion {
+    width: 100%;
+  }
 }
 .contenedorPrincipal__titulo {
   display: flex;
@@ -523,6 +617,25 @@ div.separator.separator--widthCien .separator__line {
 .contenedorPrincipal .envioStyle img {
   width: 50px;
   object-fit: contain;
+}
+
+@media screen and (max-width: 567px) {
+  .contenedorPrincipal__titulo {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .contenedorPrincipal .agradecimientos div {
+    flex-direction: column-reverse;
+    gap: 4rem;
+  }
+  .contenedorPrincipal .agradecimientos div h1 {
+    width: 90%;
+  }
+  .contenedorPrincipal .envioStyle {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 2rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

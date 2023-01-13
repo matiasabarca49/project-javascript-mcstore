@@ -5,6 +5,7 @@
     background-image: $efect-bg;
     padding: 1rem;
     font-family: $fuente-principal;
+    font-size: 1vw;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s;
@@ -86,18 +87,18 @@ div.separator.separator--widthCien{
         padding-left: 1rem;
         h3,p{
             margin: 0;
-            font-size: 2rem;
+            font-size: 2.2vw;
             text-align: start;
             span{
                 text-decoration: line-through;
                 color: rgb(173, 18, 18);
-                font-size: 1.3rem;
+                font-size: 1.8vw;
                 margin-left: 0.2rem;
             }
         }
         .cantDisponible{
             color: #aaa;
-            font-size: 0.9rem;
+            font-size: 1vw;
             margin-bottom: 1rem;
         }
         
@@ -128,3 +129,38 @@ div.separator.separator--widthCien{
     background-repeat: repeat;
     background-size: 900px;
   }
+
+
+@media screen and (max-width: 991px) {
+    .genericProduct{
+        div{
+            h3,p{
+                font-size: 2.5vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 567px) {
+    .buttn{
+        font-size: 3vw;
+    }
+    .buttnCarrito{
+        font-size: 5vw;
+    }
+    .genericProduct{
+        div{
+            h3,p{
+                font-size: 5vw;
+            }
+            .cantDisponible{
+                font-size: 3vw;
+            }
+        }
+    }
+
+    div.separator.separator--widthCien{
+        margin: 2rem 0;
+        
+    }
+}

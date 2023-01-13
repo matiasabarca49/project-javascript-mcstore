@@ -155,3 +155,17 @@ header{
         }
     }
 }
+
+@media screen and (max-width: 567px) {
+    header{
+        position: relative;
+        nav{
+            justify-content: space-between;
+            padding: 0 0.5rem;
+            ul{
+                display: none;
+            }
+        }
+    }
+    
+}

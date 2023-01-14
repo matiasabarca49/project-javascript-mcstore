@@ -6,7 +6,6 @@
     width: 400px;
     padding: 15px;
     background-color: #ddd;
-    overflow:hidden;
     border-radius: 40px;
     transition: all 0.7s;
     .carritoProducto{
@@ -34,7 +33,6 @@
             // font-size: 2rem;
             &:first-child{
                 margin: 0;
-                margin-bottom: 0.5rem;
                 padding: 0;
                 font-size: 1.5vw;
                 span{
@@ -49,6 +47,7 @@
             align-items: center;
             border-radius: 20px;
             background-color: #f8f8f8;
+            margin: 0.5rem 0;
             p{
                 font-size: 2vw;
                 padding: 0 1rem;
@@ -85,7 +84,7 @@ section.carrito--mover{
     padding: 2rem 2.5rem;
     margin: 0 4rem;
     border-radius: 40px;
-    overflow: hidden;
+    overflow: auto;
     &__product{
         background-color: #ddd;
         border-radius: 2.5rem;
@@ -207,21 +206,23 @@ section.carrito--mover{
     section.promo{
         margin-top: 0;
         img{
-            padding: 3rem 0;
+            padding: 3.5rem 0;
             width: 100vw;
         }
     }
     .carrito{
-        display: absolute;
+        position: absolute;
         right: 0;
         width: 100vw;
         .totalAPagar{
             p:first-child{
                 font-size: 5vw;
-                span{
-                    font-size: 4vw;
-                }
+
             }
         }
+    }
+    section.carrito--mover{
+        right: 0;
+        top: -1000px;
     }
 }

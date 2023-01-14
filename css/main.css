@@ -166,7 +166,6 @@ header .modeGUI img:hover {
   width: 400px;
   padding: 15px;
   background-color: #ddd;
-  overflow: hidden;
   border-radius: 40px;
   transition: all 0.7s;
 }
@@ -192,7 +191,6 @@ header .modeGUI img:hover {
 }
 .carrito .totalAPagar p:first-child {
   margin: 0;
-  margin-bottom: 0.5rem;
   padding: 0;
   font-size: 1.5vw;
 }
@@ -206,6 +204,7 @@ header .modeGUI img:hover {
   align-items: center;
   border-radius: 20px;
   background-color: #f8f8f8;
+  margin: 0.5rem 0;
 }
 .carrito .totalAPagar .totalAPagar__final p {
   font-size: 2vw;
@@ -234,7 +233,7 @@ section.carrito--mover {
   padding: 2rem 2.5rem;
   margin: 0 4rem;
   border-radius: 40px;
-  overflow: hidden;
+  overflow: auto;
 }
 .featured__product {
   background-color: #ddd;
@@ -305,19 +304,20 @@ section.carrito--mover {
     margin-top: 0;
   }
   section.promo img {
-    padding: 3rem 0;
+    padding: 3.5rem 0;
     width: 100vw;
   }
   .carrito {
-    display: absolute;
+    position: absolute;
     right: 0;
     width: 100vw;
   }
   .carrito .totalAPagar p:first-child {
     font-size: 5vw;
   }
-  .carrito .totalAPagar p:first-child span {
-    font-size: 4vw;
+  section.carrito--mover {
+    right: 0;
+    top: -1000px;
   }
 }
 .buttn {
@@ -385,7 +385,7 @@ div.separator.separator--widthCien .separator__line {
 }
 
 .separator--end {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .genericProduct {
@@ -456,6 +456,9 @@ div.separator.separator--widthCien .separator__line {
   }
   .genericProduct div h3, .genericProduct div p {
     font-size: 5vw;
+  }
+  .genericProduct div h3 span, .genericProduct div p span {
+    font-size: 4vw;
   }
   .genericProduct div .cantDisponible {
     font-size: 3vw;

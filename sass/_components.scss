@@ -70,7 +70,7 @@ div.separator.separator--widthCien{
 }
 
 .separator--end{
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 }
 
 .genericProduct{
@@ -152,6 +152,9 @@ div.separator.separator--widthCien{
         div{
             h3,p{
                 font-size: 5vw;
+                span{
+                    font-size: 4vw
+                };
             }
             .cantDisponible{
                 font-size: 3vw;

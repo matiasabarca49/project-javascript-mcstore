@@ -10,14 +10,18 @@
 <body class="box">
     <div id="usuarioLogueado" class="usuarioIngresado"></div>
     <main class="contenedorPrincipal">
+        <!-- Contiene los productos del carrito -->
         <div class="contenedorCarrito">
             <h1>Carrito</h1>
             <div id="contenedorCarrito" class="contenedorCarritoProductos"></div> 
         </div>
+        <!-- Nos dice el total de la compra. Ademas se agrega el boton "Pagar" una vez completados los datos del formulario -->
         <div class="totalStyle" id="totalStyleID">
             <div id="total"></div>
+            <!-- Este contenedor se completa una vez ingresado los datos.  -->
             <div id="botonParaPagar"></div>
         </div>
+        <!-- Informacion del usuario a realizar la compra -->
         <div class="contenedorInicioSesion">
             <form action="" id="formulario">
                 <div class="formFirstAndLastName"> 
@@ -32,6 +36,7 @@
                 </div>
                 <div>
                     <label for="tarjeta">Nro de Tarjeta:</label>
+                    <!-- Se controla que el formato de tarjeta sea correcto XXXX-XXXX-XXXX-XXXX -->
                     <div class="formPhone"> 
                         <input type="" name="" placeholder=" XXXX" minlength="4" maxlength="4" pattern="[0-9]{4}" required>
                         <input type="" name="" placeholder="XXXX" minlength="4" maxlength="4" pattern="[0-9]{4}" required>

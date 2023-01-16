@@ -1,6 +1,7 @@
 /* === Funcion para agregar los productos al carrito === */
 function agregarACarrito(idProducto){
 
+    //La variable "notificacion" permite que la notificacion "Producto agregado al carrito" solamente salte cuando se agregan productos
     let notificacion = true;
     
     //Verificamos si el producto ya se encuentra en el carrito
@@ -25,18 +26,9 @@ function agregarACarrito(idProducto){
          
     }
     else{
+        //Como no se agregó ninguno producto. Evitamos que la notificacion salte
         notificacion = false;
-        swal.fire({
-            position: 'top',
-            text: "Alcanzado el stock máximo",
-            customClass:{
-                confirmButton: "buttn buttnAlertAffirmative",
-            },
-            buttonsStyling: false,
-            timer: 1000,
-            icon: "error",
-            showConfirmButton: false
-        })
+        alertaDeStockAlcanzado();
     }
     
     // Notificacion "Producto agregado al carrito" 
@@ -139,17 +131,8 @@ function incrementarProducto(objetoID){
         prodEncontradoEnCarrito.cantidad++;
     }
     else{
-        swal.fire({
-            position: 'top',
-            text: "Alcanzado el stock máximo",
-            customClass:{
-                confirmButton: "buttn buttnAlertAffirmative",
-            },
-            buttonsStyling: false,
-            timer: 1000,
-            icon: "error",
-            showConfirmButton: false
-        })
+        //En caso de que se supere el stock usamos "sweetAlert" para lanzar una alerta de stock maximo que esta contenido en una funciona
+        alertaDeStockAlcanzado();
     }
     //Actualizamos la cantidad en el DOM carrito
     cantidadActual.innerText =`x ${prodEncontradoEnCarrito.cantidad}`;
@@ -199,6 +182,7 @@ function mostrarCarritoCompleto(carrito){
 
 /* === Funcion agregar boton para vaciar carrito  === */
 function agregarBotonVaciarEnElCarrito(){
+    //Siempre verificamos que la longitud de carrito sea mayor a 0
     if (carrito.length !== 0) {
       const contenedorBotonVaciar = document.getElementById("vaciarCarrito");
       contenedorBotonVaciar.innerHTML= "";
@@ -212,6 +196,8 @@ function agregarBotonVaciarEnElCarrito(){
 
   const botonVaciarCarrito = document.querySelector("#vaciarCarrito button");
   botonVaciarCarrito.onclick = () => {
+    //Utilizamos "sweetAlert" para preguntar si realmente se quiere vaciar el carrito.
+    //En  caso de que se confirme la peticion se llama a la funcion encargada de ello.
       swal.fire({
           text: "¿Vaciar el carrito?",
           icon: "warning",
@@ -242,7 +228,7 @@ function vaciarCarrito(){
 }
 
 
-/* === Costo total del carrito === */
+/* === Funcion que calcula el costo total del carrito, agrega el envio segun el costo y agrega el boton pagar === */
 
 function sumaCarrito(){
     const total = carrito.reduce((acumulador, producto) => acumulador + (producto.precio * producto.cantidad) ,0);
@@ -257,7 +243,7 @@ function sumaCarrito(){
         contenedorEnvio.innerText="Envio Gratis"
         contenedorTotalFinal.innerHTML = `<p class="totalAPagar__final"> Final: $ ${(total)}</p>
                                           <button class=" buttn buttnPagar" id="pago"> Ir a pagar </button>`;
-        // Funcion que crea el evento en el boton. 
+        // Funcion que crea el evento en el boton del carrito. 
         pagar();
 
     }
@@ -275,7 +261,8 @@ function sumaCarrito(){
     
 }
 
-//Funcion que crea el evento pagar
+//Funcion que crea el evento pagar.
+//Redirige a la pagina de pago
 function pagar(){
     const irAPagar = document.getElementById("pago");
     irAPagar.addEventListener("click", ()=>{
@@ -377,6 +364,21 @@ function aplicarDescuento(objeto){
         objeto.descuento = objeto.precio;
         objeto.precio *= (100 - descuento)/100;
     }
+}
+
+/* Funcion que lanza la alerta de stock maximo alcanzado */
+function alertaDeStockAlcanzado(){
+    swal.fire({
+        position: 'top',
+        text: "Alcanzado el stock máximo",
+        customClass:{
+            confirmButton: "buttn buttnAlertAffirmative",
+        },
+        buttonsStyling: false,
+        timer: 1000,
+        icon: "error",
+        showConfirmButton: false
+    })
 }
 
 /* =================================================  ALGORITMO PRINCIPAL =============================================== */

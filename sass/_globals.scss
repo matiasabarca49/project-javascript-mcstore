@@ -156,6 +156,17 @@ header{
     }
 }
 
+@media  screen and (max-width:900px){
+    header{
+        nav{
+            ul{
+                display: none;
+            }
+        }
+    }
+    
+}
+
 @media screen and (max-width: 567px) {
     header{
         position: relative;

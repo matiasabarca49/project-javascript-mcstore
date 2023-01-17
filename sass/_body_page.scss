@@ -3,7 +3,7 @@
     top: 100px;
     right: 20px;
     z-index: 999;
-    width: 400px;
+    width: 35%;
     padding: 15px;
     background-color: #ddd;
     border-radius: 40px;
@@ -170,6 +170,9 @@ section.carrito--mover{
 
 
 @media screen and (max-width: 991px) {
+    .carrito{
+        width: 50%;
+    }
     .products{
         div{
             div{
@@ -181,6 +184,14 @@ section.carrito--mover{
 
         }
 
+    }
+    
+}
+
+@media screen and (max-width: 761px) {
+    .carrito{
+        width: 100vw;
+        right: 0;
     }
     
 }

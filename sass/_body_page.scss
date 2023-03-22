@@ -1,3 +1,25 @@
+.mostrarPromo{
+    display: none;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background-image: linear-gradient(rgba(5, 7, 12,0.90),rgba(5, 7, 12, 0.90));
+    width: 100%;
+    height: 100vh;
+    img{
+        width: 100%;
+        margin: auto;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        padding: 0 8rem;
+    }
+}
+
+section.mostrarPromo--active{
+    display: block;
+}
+
 .carrito{
     position: fixed;
     top: 100px;
@@ -64,58 +86,82 @@ section.carrito--mover{
 
 
 .promo{
-    width: 100%;
+    display: flex;
     text-align: center;
+    margin: 0 10rem;
     margin-top: 105px;
+    overflow: hidden;
+    position: relative;
+    height: 80vh;
     img{
+        position: absolute;
         padding: 2rem 0;
-        width: 75%;
-        // height: 500px;
-        // object-fit: cover;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        
     }
+    
+    #IMG2{
+        left: 100%;
+    }
+
+    img#IMG2.active{
+        transition: all 3s;
+        left: 0;
+        
+    }
+    img#IMG2.salida{
+        transition: all 3s;
+        left: -100%;
+        
+    }
+    
 }
 
 
+
 .featured{
-    display: flex;
-    justify-content: center;
     background-color: #f8f8f8;
-    gap: 1rem;
-    padding: 2rem 2.5rem;
+    overflow: hidden;
+    padding: 2rem;
     margin: 0 4rem;
     border-radius: 40px;
-    overflow: auto;
-    &__product{
-        background-color: #ddd;
-        border-radius: 2.5rem;
-        overflow: hidden;
-        min-width: 200px;
-        // box-shadow: 0 0 30px #000;   //Por decidir
-        img{
-            width: 100%;
-
-        }
-        div{
-            // padding-bottom: 1.5rem;
-            margin: 1rem 0;
-            padding-left: 1rem;
-            h3,p{
-                margin: 0;
-                //margin-bottom: 0.5rem;
-                font-size: 1.5rem;
-                span{
-                    text-decoration: line-through;
-                    color: rgb(173, 18, 18);
-                    font-size: 1.2rem;
-                    margin-left: 0.2rem;
-                }
+    .swiper-wrapper{
+        height: 70%;
+        .swiper-slide{
+            background-color: #ddd;
+            border-radius: 2.5rem;
+            width: 150px;
+            overflow: hidden;
+            img{
+                width: 100%;
             }
-            .buttn--modified{
-
+            div{
+                // padding-bottom: 1.5rem;
                 margin: 1rem 0;
-
+                padding-left: 1rem;
+                h3,p{
+                    margin: 0;
+                    //margin-bottom: 0.5rem;
+                    font-size: 1.7vw;
+                    span{
+                        text-decoration: line-through;
+                        color: rgb(173, 18, 18);
+                        font-size: 1.2vw;
+                        margin-left: 0.2rem;
+                    }
+                }
+                .buttn--modified{
+    
+                    margin: 1rem 0;
+    
+                }
+                
             }
-            
+        }
+        div.swiper-pagination{
+            bottom: 5px;
         }
     }
 }
@@ -141,24 +187,7 @@ section.carrito--mover{
                 gap: 1rem;
                 .products__category__product{
                     margin: 2rem 0;
-                    border-radius: 40px 0 40px 0;
-                    // overflow: hidden;
-                    
-                    // background-color: #ddd;
-                    // div{
-                    //     // padding: 1.5rem 0;
-                    //     // padding-left: 1rem;
-                    //     h3{
-                    //         // font-size: 1rem;
-                    //         // text-align: start;
-                    //     }
-                    // }
-                    
-                    
-                    // img{
-                    //     width: 100%;
-                    // }
-                   
+                    border-radius: 40px 0 40px 0;       
                 }
         
             }
@@ -170,6 +199,11 @@ section.carrito--mover{
 
 
 @media screen and (max-width: 991px) {
+    .mostrarPromo{
+        img{
+            padding: 0 0;
+        }
+    }
     .carrito{
         width: 50%;
     }
@@ -185,6 +219,35 @@ section.carrito--mover{
         }
 
     }
+
+    section.promo{
+        margin: 0;
+        margin-top: 105px;
+        height: 50vh;
+    }
+    
+    .featured{
+        // margin: 0rem 2rem;
+        .swiper-wrapper{
+            .swiper-slide{
+
+                div{
+                    h3,p{
+                        font-size: 2.5vw;
+                        span{
+                            font-size: 2vw;
+                        }
+                    }
+                    .buttn--modified{
+    
+                        font-size: 1.8vw;
+        
+                    }
+                }
+            }
+
+        }
+    }
     
 }
 
@@ -192,6 +255,29 @@ section.carrito--mover{
     .carrito{
         width: 100vw;
         right: 0;
+    }
+
+    .featured{
+        // margin: 0rem 2rem;
+        .swiper-wrapper{
+            .swiper-slide{
+
+                div{
+                    h3,p{
+                        font-size: 4vw;
+                        span{
+                            font-size: 3vw;
+                        }
+                    }
+                    .buttn--modified{
+    
+                        font-size: 2.3vw;
+        
+                    }
+                }
+            }
+
+        }
     }
     
 }
@@ -216,7 +302,10 @@ section.carrito--mover{
     }
     section.promo{
         margin-top: 0;
+        // margin: 0;
+        height: 40vh;
         img{
+            object-fit: cover;
             padding: 3.5rem 0;
             width: 100vw;
         }
@@ -235,5 +324,28 @@ section.carrito--mover{
     section.carrito--mover{
         right: 0;
         top: -1000px;
+    }
+
+    .featured{
+        margin: 0rem 2rem;
+        .swiper-wrapper{
+            .swiper-slide{
+
+                div{
+                    h3,p{
+                        font-size: 8vw;
+                        span{
+                            font-size: 5vw;
+                        }
+                    }
+                    .buttn--modified{
+    
+                        font-size: 5vw;
+        
+                    }
+                }
+            }
+
+        }
     }
 }

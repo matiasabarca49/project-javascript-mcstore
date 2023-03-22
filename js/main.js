@@ -337,9 +337,9 @@ function renderizarDom(producto){
 function renderizarDomDestacados(producto){
     //Solamente trabaja con los productos que tienen un descuento aplicado
     if (producto.descuento != 0){
-        const contFeatured = document.getElementById("featuredDom");
+        const contFeatured = document.querySelector(".swiper-wrapper");
         const div = document.createElement("div");
-        div.className = "featured__product";
+        div.className = "swiper-slide";
         div.innerHTML= ` <img src="${producto.url}" alt="">
                         <div>
                             <h3>${producto.nombre}</h3>
@@ -392,7 +392,6 @@ fetch("./json/productos.json")
         mostrarProductosEnElDOM(productos);
     })
     .catch(error => console.log(error));
-
 
 /*  Carrito en el localstorage*/ 
 // carrito se inicia con "let" debido a que se debe reasignar el carrito guardado en localstorage

@@ -26,9 +26,11 @@ body{
     }
     .featured{
         background-color: #222;
-        &__product{
-            background-color: #fff;
-            color: #000;
+        .swiper-wrapper{
+            .swiper-slide{
+                background-color: #fff;
+                color: #000;
+            }
         }
     }
     .products{
@@ -129,7 +131,7 @@ header{
 }
 
 .footer{
-    height: 200px;
+    height: 250px;
     background-image: $efect-bg;
     display: flex;
     justify-content: space-around;
@@ -154,6 +156,10 @@ header{
             width: 40px;
         }
     }
+    #map{
+        width: 400px;
+        height: 200px;
+    }
 }
 
 @media  screen and (max-width:900px){
@@ -177,6 +183,10 @@ header{
                 display: none;
             }
         }
+    }
+
+    .footer{
+        flex-direction: column;
     }
     
 }

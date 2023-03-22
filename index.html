@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+    <!-- Libreria SwipeJS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <!-- Toastify -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- CSS -->
     <link rel="stylesheet" href="./css/main.css">
     <link rel="icon" type="image/x-icon" href="./img/icon/Logo2.ico">
     <title>MCKING || Store</title>
@@ -51,7 +59,8 @@
 
 <!-- Seccion Promocion -->
     <section class="promo">
-        <img src="./img/promo_4-2.jpg" alt="">
+        <img src="./img/promociones/promo_4-2.jpg" alt="" id="IMG1">  
+        <img src="./img/promociones/promo_2-2.jpg" alt="" id="IMG2">  
     </section>
 
 <!-- Seccion de productos destacados  -->
@@ -63,13 +72,23 @@
         <div class="separator__line"></div>
     </div>
     
-    <section class="featured" id="featuredDom"> 
+    <section class="swiper featured">
+        <div class="swiper-wrapper"></div>
+        <div class="swiper-pagination"></div>
+         <!-- If we need navigation buttons -->
+         <div class="swiper-button-next"></div>
+         <div class="swiper-button-prev"></div>
+         
     </section>
 
     <div class="separator separator--end">
         <div class="separator__line"></div>
         <div class="separator__line"></div>
     </div>
+
+    <section class="mostrarPromo" id="mostrarPromoID">
+        <img src="../img/envios.jpg" alt="">
+    </section>
 
 <!-- Productos en el DOM diferenciados por categoria -->
     <section class="products">
@@ -110,23 +129,35 @@
 
 
     <footer class="footer">
-        <div>Contacto</div>
         <div class="redes">
             <h4>Redes Sociales</h4>
             <ul>
                 <li><a href="#"><img src="./img/facebook.png" alt=""></a></li>
                 <li><a href="#"><img src="./img/instagram.png" alt=""></a></li>
             </ul>
-            
         </div>
-
-        <div>Logo</div>
+        
+        <div id="map"></div>
+        <div>
+            <p class="header__logo">MCking</p>
+        </div>
     </footer>
+
+    <!-- Script Principal -->
+    <script src="./js/main.js"></script>
     <!-- Sweet Alert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Toasty -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <!-- Script Principal -->
-    <script src="./js/main.js"></script>
+    <!-- SwiperJS -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- Script Animaciones -->
+    <script src="./js/animaciones.js"></script>
+    <!-- Script Localizacion -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+    <script src="./js/geo.js"></script>
 </body>
 </html>

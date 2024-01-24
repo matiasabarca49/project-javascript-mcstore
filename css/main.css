@@ -76,7 +76,7 @@ header nav ul li:hover {
   transform: scale(110%);
 }
 header nav ul li a {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #fff;
   text-decoration: none;
 }
@@ -119,37 +119,49 @@ header .modeGUI img:hover {
 }
 
 .footer {
-  height: 250px;
   background-image: linear-gradient(90deg, rgb(100, 130, 200) 0%, rgb(75, 90, 150) 0%, rgb(64, 81, 99) 59%);
-  display: flex;
-  justify-content: space-around;
+  /* display: flex;
+  justify-content: space-around; */
   padding: 1rem 0;
   color: #fff;
   text-align: center;
 }
-.footer .redes {
+.footer .footer__content {
+  /* height: 250px; */
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  max-width: 1200px;
+}
+.footer .footer__content .redes {
   font-size: 2rem;
 }
-.footer .redes ul {
+.footer .footer__content .redes ul {
   display: flex;
   justify-content: center;
   gap: 1.2rem;
   padding: 0;
 }
-.footer .redes ul li {
+.footer .footer__content .redes ul li {
   list-style-type: none;
 }
-.footer .redes ul li a {
+.footer .footer__content .redes ul li a {
   text-decoration: none;
 }
-.footer .redes img {
+.footer .footer__content .redes img {
   width: 40px;
 }
-.footer #map {
+.footer .footer__content #map {
   width: 400px;
   height: 200px;
 }
 
+@media screen and (min-width: 1200px) {
+  header nav {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
 @media screen and (max-width: 900px) {
   header nav ul {
     display: none;
@@ -166,7 +178,8 @@ header .modeGUI img:hover {
   header nav ul {
     display: none;
   }
-  .footer {
+  .footer .footer__content {
+    height: 250px;
     flex-direction: column;
   }
 }
@@ -202,6 +215,8 @@ section.mostrarPromo--active {
   background-color: #ddd;
   border-radius: 40px;
   transition: all 0.7s;
+  max-width: 700px;
+  box-shadow: 0px 5px 19px rgba(128, 128, 128, 0.5);
 }
 .carrito .carritoProducto {
   overflow-y: scroll;
@@ -341,6 +356,40 @@ section.carrito--mover {
   border-radius: 40px 0 40px 0;
 }
 
+@media screen and (min-width: 1200px) {
+  section.carrito--mover {
+    right: -7500px;
+  }
+  section.promo {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 105px;
+  }
+  .separator {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .featured {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .featured .swiper-wrapper .swiper-slide div h3, .featured .swiper-wrapper .swiper-slide div p {
+    font-size: 1.2rem;
+  }
+  .featured .swiper-wrapper .swiper-slide div h3 span, .featured .swiper-wrapper .swiper-slide div p span {
+    font-size: 1rem;
+  }
+  .featured .swiper-wrapper .swiper-slide div .buttn--modified {
+    font-size: 0.7rem;
+  }
+  .products {
+    max-width: 1200px;
+    margin: 4rem auto;
+  }
+  .products div div .products__category {
+    margin: 0;
+  }
+}
 @media screen and (max-width: 991px) {
   .mostrarPromo img {
     padding: 0 0;
@@ -500,6 +549,8 @@ div.separator.separator--widthCien .separator__line {
   background-color: #ddd;
   border-radius: 2.5rem;
   overflow: hidden;
+  /*  box-shadow: 0px 5px 25px rgba(128, 128, 128, 0.5); */
+  box-shadow: 0px 35px 80px rgba(173, 185, 201, 0.2);
 }
 .genericProduct img {
   width: 100%;
@@ -550,6 +601,21 @@ div.separator.separator--widthCien .separator__line {
   background-size: 900px;
 }
 
+@media screen and (min-width: 1200px) {
+  .genericProduct div h3, .genericProduct div p {
+    font-size: 1.5rem;
+  }
+  .genericProduct div h3 span, .genericProduct div p span {
+    font-size: 1rem;
+  }
+  .genericProduct div .cantDisponible {
+    font-size: 0.9rem;
+  }
+  .buttn {
+    font-size: 0.9rem;
+    box-shadow: 0px 5px 19px rgba(128, 128, 128, 0.5);
+  }
+}
 @media screen and (max-width: 991px) {
   .genericProduct div h3, .genericProduct div p {
     font-size: 2.5vw;
@@ -594,20 +660,21 @@ div.separator.separator--widthCien .separator__line {
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  margin: 4rem;
+  margin: 4rem auto;
   padding: 4rem 0;
   /*text-align: center;*/
+  max-width: 1200px;
 }
 .contenedorPrincipal .contenedorCarrito {
   text-align: center;
   padding: 1rem 0;
+  width: 50%;
 }
 .contenedorPrincipal .contenedorCarrito .contenedorCarritoProductos {
   text-align: start;
   margin: 1rem 0;
 }
 .contenedorPrincipal .contenedorCarrito .contenedorCarritoProductos div {
-  width: 50vw;
   margin: 0.5rem 0;
   padding: 1.5rem;
   background-color: #ddd;
@@ -676,6 +743,9 @@ div.separator.separator--widthCien .separator__line {
 @media screen and (max-width: 567px) {
   .contenedorPrincipal {
     margin: 4rem 0;
+  }
+  .contenedorPrincipal .contenedorCarrito {
+    width: initial;
   }
   .contenedorPrincipal .contenedorCarrito .contenedorCarritoProductos div {
     width: 80vw;

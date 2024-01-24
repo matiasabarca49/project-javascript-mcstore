@@ -78,7 +78,7 @@ const swiper = new Swiper(".featured", {
         slidesPerView: 5,
     },
     1920: {
-        slidesPerView: 6,
+        slidesPerView: 5,
     }
     
     }

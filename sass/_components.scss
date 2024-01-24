@@ -81,7 +81,8 @@ div.separator.separator--widthCien{
     background-color: #ddd;
     border-radius: 2.5rem;
     overflow: hidden;
-    // box-shadow: 0 0 30px #000;   //Por decidir
+   /*  box-shadow: 0px 5px 25px rgba(128, 128, 128, 0.5); */ //Por decidir
+    box-shadow: 0px 35px 80px rgba(173, 185, 201, 0.2);
     img{
         width: 100%;
 
@@ -134,6 +135,27 @@ div.separator.separator--widthCien{
     background-size: 900px;
   }
 
+  @media screen and (min-width: 1200px) {
+    .genericProduct{
+        div{
+            h3,p{
+                font-size: 1.5rem;
+                span{
+                    font-size: 1rem;
+                }
+            }
+            .cantDisponible{
+                font-size: 0.9rem;
+                
+            }
+            
+        }
+    }
+    .buttn{
+        font-size: 0.9rem;
+        box-shadow: 0px 5px 19px rgba(128, 128, 128, 0.5);
+    }
+}
 
 @media screen and (max-width: 991px) {
     .genericProduct{

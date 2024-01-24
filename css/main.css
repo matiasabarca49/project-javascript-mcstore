@@ -307,6 +307,7 @@ section.carrito--mover {
   border-radius: 2.5rem;
   width: 150px;
   overflow: hidden;
+  box-shadow: 0px 35px 80px rgba(173, 185, 201, 0.2);
 }
 .featured .swiper-wrapper .swiper-slide img {
   width: 100%;
